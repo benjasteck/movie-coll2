@@ -16,21 +16,21 @@ public class CategoryDAO {
         cm = new ConnectionManager();
     }
 
-    public Category createNewCategory(Category category) throws Exception {
+    public Category createNewCategory(String category) throws Exception {
         Category createdCategory = null;
         Connection con = cm.getConnection();
         String sqlSelectCategory = "INSERT INTO category VALUES(?)";        //id will be set in database automatically
 
         PreparedStatement pststmtInsertCategory =
                 con.prepareStatement(sqlSelectCategory, Statement.RETURN_GENERATED_KEYS);       //prepared statement is for set query parameters and run query in database
-        pststmtInsertCategory.setString(1, category.getName());
+        pststmtInsertCategory.setString(1, category);
 
         pststmtInsertCategory.execute();
         ResultSet rs = pststmtInsertCategory.getGeneratedKeys();  //created identity id return
         //result set is for getting data from executed query
         while (rs.next()) {             //traverse results in result set and get data
             int id = rs.getInt(1);
-            createdCategory = new Category(id,  category.getName());
+            createdCategory = new Category(id,  category);
         }
         rs.close();                         //closing all used objects
         pststmtInsertCategory.close();

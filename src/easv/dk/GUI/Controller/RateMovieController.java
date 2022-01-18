@@ -1,6 +1,7 @@
 package easv.dk.GUI.Controller;
 
 
+import easv.dk.BE.Movie;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -27,5 +28,9 @@ public class RateMovieController {
 
 
         }
+    }
+
+    public void setInfo(Movie selectedItem) {
+        System.out.println(selectedItem.getTitle());
     }
 }

@@ -39,7 +39,7 @@ public class Controller {
     @FXML
     private TableView categoryTable;
     @FXML
-    private TableView movieTable;
+    private TableView<Movie> movieTable;
     @FXML
     private Button btnNewCategory;
     @FXML
@@ -118,6 +118,8 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/rateMovieWindow.fxml"));
         Parent root = loader.load();
+        RateMovieController contrl = loader.<RateMovieController>getController();
+        contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);

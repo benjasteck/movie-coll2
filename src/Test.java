@@ -86,7 +86,7 @@ public class Test {
     private static void createCategory() {
         try {
             CategoryDAO categoryDAO = new CategoryDAO();
-            Category createdCategory = categoryDAO.createNewCategory(new Category(0, "Action"));
+            Category createdCategory = categoryDAO.createNewCategory( "Action");
             System.out.println(createdCategory.getId());
             System.out.println(createdCategory.getName());
         } catch (IOException e) {
