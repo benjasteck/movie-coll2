@@ -49,8 +49,6 @@ public class Controller {
     @FXML
     private Button btnRemoveMovies;
     @FXML
-    private Button btnAddMovies;
-    @FXML
     private Button btnAddCatMovies;
     @FXML
     private Button btnDeleteMovies;
@@ -453,7 +451,7 @@ public class Controller {
         System.out.println(movieTable.getSelectionModel().getSelectedItem());
         movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
     }
-
+/*
     public void addCatMovies(ActionEvent actionEvent) {
         final Movie selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();
         final Category selectedCategory = (Category) categoryTable.getSelectionModel().getSelectedItem();
@@ -465,9 +463,9 @@ public class Controller {
             showCategorySelectForMovie(selectedMovie);
         else
             showMovieSelectForCategory(selectedCategory);
-    }
+    */
 
-    private void showMovieSelectForCategory(Category selectedCategory) {
+   /* private void showMovieSelectForCategory(Category selectedCategory) {
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieSelectforCategory.fxml"));
@@ -483,8 +481,10 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
     }
 
+/*
     private void showCategorySelectForMovie(Movie selectedItem) {
         Parent root;
         try {
@@ -501,13 +501,15 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+
+ */
+
     //when button is clicked, the selected movie will be added to the current category
     //System.out.println(movieTable.getSelectionModel().getSelectedItem());
     // movieOnCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
 
 
-}
+
 
 /*
    public void sorter(){
