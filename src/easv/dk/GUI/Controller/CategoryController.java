@@ -49,8 +49,7 @@ public class CategoryController {
    public void saveCategory(ActionEvent actionEvent) throws Exception {
         String name = txtName.getText();
 
-        Category categoryCreated = new Category(name);
-        manager.createCategory(categoryCreated);
+        manager.createCategory(name);
         Stage stage = (Stage) saveCategoryButton.getScene().getWindow();
         stage.close();
         categoryTable.refresh();
