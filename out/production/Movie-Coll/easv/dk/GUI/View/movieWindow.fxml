@@ -24,23 +24,23 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="194.0" layoutY="57.0" promptText="Insert Title" />
-      <TextField layoutX="194.0" layoutY="110.0" promptText="Insert IMDB Rating" />
-      <TextField layoutX="194.0" layoutY="157.0" promptText="Insert Personal Rating" />
+      <TextField fx:id="txt_title" layoutX="194.0" layoutY="57.0" promptText="Insert Title" />
+      <TextField fx:id="txt_ImbdRating" layoutX="194.0" layoutY="110.0" promptText="Insert IMDB Rating" />
+      <TextField fx:id="txt_userRating" layoutX="194.0" layoutY="157.0" promptText="Insert Personal Rating" />
       <Label layoutX="47.0" layoutY="200.0" text="Category:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <ComboBox fx:id="comboBoxCategory" layoutX="194.0" layoutY="201.0" prefWidth="150.0" />
-      <Button layoutX="406.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="btnSaveMovie" layoutX="406.0" layoutY="336.0" mnemonicParsing="false" onAction="#saveNewMovie" prefHeight="25.0" prefWidth="51.0" text="Save" />
       <Button fx:id="btnCancelEditingMovie" layoutX="472.0" layoutY="336.0" mnemonicParsing="false" onAction="#cancelEditingMovie" text="Cancel" />
       <Label layoutX="47.0" layoutY="251.0" text="File:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="194.0" layoutY="252.0" />
+      <TextField fx:id="txt_movieUrl" layoutX="194.0" layoutY="252.0" />
       <Button fx:id="btnChooseFile" layoutX="364.0" layoutY="252.0" mnemonicParsing="false" onAction="#chooseFile" text="Choose" />
    </children>
 </AnchorPane>
