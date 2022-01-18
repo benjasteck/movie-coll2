@@ -36,7 +36,7 @@ public class Movie{
         }
 
         public String getLastView() {
-                return lastView;
+                return "18/1/2022";
         }
 
         public String getMovieUrl() {

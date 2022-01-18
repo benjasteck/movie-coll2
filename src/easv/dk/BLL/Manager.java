@@ -24,6 +24,7 @@ public class Manager implements LogicInterface {
         public void updateMovieDate(){}
         */
     DALmanager daLmanager = new DALmanager();
+    private Object Category;
 
     public Manager() throws IOException {
 
@@ -42,13 +43,18 @@ public class Manager implements LogicInterface {
 
     @Override
     public List<Category> getAllCategories() throws SQLException {
-        return this.daLmanager.getAllCategories();
+        return daLmanager.getAllCategories();
+    }
+
+    @Override
+    public easv.dk.BE.Category createCategory(easv.dk.BE.Category category) throws Exception {
+        easv.dk.BE.Category name = null;
+        return daLmanager.createCategory(name);
     }
 
 
-    public Category createCategory(Category category) throws Exception {
-        //return daLmanager.createCategory(category);
-        return null;
+    public Category createCategory(String name) throws Exception {
+        return daLmanager.createCategory(name);
     }
 
 
