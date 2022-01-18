@@ -8,6 +8,7 @@ import easv.dk.BLL.Manager;
 import easv.dk.DAL.CatMovieDAO;
 import easv.dk.GUI.Model.CategoryModel;
 import easv.dk.GUI.Model.MovieModel;
+import javafx.animation.Animation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -19,8 +20,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -71,6 +75,7 @@ public class Controller {
     private final static int MovieSelected = 0;   //constant
     private final static int CategorySelected = 1;        //constant
     private int mode = MovieSelected;
+    //private Animation mediaPlayer;
 
     // MediaPlayer mediaPlayer;
     //    int currentMovie = -1;
@@ -448,6 +453,49 @@ public class Controller {
         }
     }
 
+    public void playMovie(ActionEvent actionEvent) {
+    }
+/*
+
+        if (mediaPlayer != null && currentMovie == movieTable.getSelectionModel().getSelectedIndex()) {
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+                mediaPlayer.pause();
+            else if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
+                mediaPlayer.play();
+            }
+        } else {
+            currentMovie = movieTable.getSelectionModel().getFocusedIndex();
+            play();
+    }
+        private void play() {
+
+            if (mediaPlayer != null) {
+                stopMediaPlayer();
+            }
+
+            File file = new File(movieTable.getItems().get(currentMovie).getSongFile());
+
+            Media media = new Media(file.toURI().toString());
+            mediaPlayer = new Animation(media) {
+
+            };
+            mediaPlayer.play();
+
+            mediaPlayer.setOnEndOfMedia(() -> { // On end of media checks if the next song is valid to be played.
+                if (movieTable.getSelectionModel().getSelectedIndex() != -1) {
+                    if (movieTable.getItems().size() == currentMovie + 1) {
+                        currentMovie = 0; // If the last element of the list is reached. Restarts the counter back to 0
+                    } else {
+                        currentMovie++;
+                    }
+                    play(); //Calls itself to continue playing
+                } else {
+                    stopMediaPlayer(); //If no song is selected. Then stop the playing music.
+                }
+            });
+        }
+*/
+
 
 
 /*
@@ -482,6 +530,8 @@ public class Controller {
         }
         */
     }
+
+
 
 /*
     private void showCategorySelectForMovie(Movie selectedItem) {
