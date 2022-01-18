@@ -22,7 +22,7 @@ public interface LogicInterface {
 
     public void deleteCategory(Category category) throws SQLException;
 
-    public List<Category> getCategoriesFromMovies(Category category);
+    public List<Category> getCategoriesFromMovie(Movie movie) throws SQLException;
 
     public List<Movie> getMoviesFromCategories(Category category) throws SQLException;
 
@@ -30,9 +30,9 @@ public interface LogicInterface {
 
     public void updateCategory(String name, int id) throws SQLException;
 
-    public void addMovieToCategory();
+    public void addMovieToCategory(int movieId,int categoryId) throws SQLException;
 
-    public void removeMovieFromCategory();
+    public void removeMovieFromCategory(int movieId,int categoryId) throws SQLException;
 
 
 

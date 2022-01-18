@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO {
-    easv.dk.DAL.ConnectionManager cm;
+    ConnectionManager cm;
 
     public CategoryDAO() throws IOException {
-        cm = new easv.dk.DAL.ConnectionManager();
+        cm = new ConnectionManager();
     }
 
     public Category createNewCategory(Category category) throws Exception {
@@ -43,7 +43,16 @@ public class CategoryDAO {
     public List<Category> getAllCategories() throws SQLException {
         List<Category> categoryList = new ArrayList<>();
         Connection con = cm.getConnection();
-        String sqlSelectCategory = "SELECT * FROM category;";
+        /*
+        select all category join to catmovie table and get id , name from category and get moviecount
+        for each category. to get movieCount we should use group by command to get for each category
+        and because some categories do not have any movie we used "left outer join" instead of join to get null
+        catmovie
+         */
+        String sqlSelectCategory = "select id,name,COUNT(movie_id) as movieCount \n" +
+                "from category \n" +
+                "left OUTER JOIN catMovie on category.id=catMovie.category_id\n" +
+                "GROUP by id,name;";
         PreparedStatement pststmtmtselectCategory = con.prepareStatement(sqlSelectCategory);         //prepared statement is for set query parameters and run query in database
         ResultSet rs = pststmtmtselectCategory.executeQuery();          //result set is for getting data from executed query
 
@@ -51,6 +60,7 @@ public class CategoryDAO {
             String name = rs.getString("name");
             int Id = rs.getInt("id");
             Category category = new Category( Id,name);
+            category.setMovieCount(rs.getInt("movieCount"));        //set movie count
             categoryList.add(category);
         }
         //closing all used objects

@@ -10,10 +10,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DALmanager implements easv.dk.DAL.manager.IDALManager {
-    private easv.dk.DAL.CategoryDAO categoryDAO;
-    private easv.dk.DAL.MovieDAO movieDAO;
-    private easv.dk.DAL.CatMovieDAO catMovieDAO;
+public class DALmanager implements IDALManager {
+    private CategoryDAO categoryDAO;
+    private MovieDAO movieDAO;
+    private CatMovieDAO catMovieDAO;
 
     public DALmanager() throws IOException {
         this.categoryDAO = new CategoryDAO();

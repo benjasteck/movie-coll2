@@ -11,15 +11,15 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) throws Exception {
         // createMovie();
-        getAllMovie();
+        //getAllMovie();
         // updateMovie();
         //deleteMovie();
         //System.out.println("?"+!connection.isClose());
 
-        //createCateogry();
-        // getAllCatgories();
+        //createCategory();
+        // getAllCategories();
         // getCategoryById();
-        //updateCateogry();
+        //updateCategory();
         //deleteCategory();
     }
 
@@ -39,7 +39,7 @@ public class Test {
         }
     }
 
-    private static void updateCateogry() {
+    private static void updateCategory() {
         CategoryDAO categoryDAO = null;
         try {
             categoryDAO = new CategoryDAO();
@@ -68,7 +68,7 @@ public class Test {
         }
     }
 
-    private static void getAllCatgories() {
+    private static void getAllCategories() {
         try {
             CategoryDAO categoryDAO = new CategoryDAO();
             List<Category> categoryList = categoryDAO.getAllCategories();
@@ -83,7 +83,7 @@ public class Test {
         }
     }
 
-    private static void createCateogry() {
+    private static void createCategory() {
         try {
             CategoryDAO categoryDAO = new CategoryDAO();
             Category createdCategory = categoryDAO.createNewCategory(new Category(0, "Action"));

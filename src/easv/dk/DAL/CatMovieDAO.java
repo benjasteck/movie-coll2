@@ -95,7 +95,7 @@ public class CatMovieDAO {
             double userRating = resultSet.getDouble("userRating");
             double imdbRating = resultSet.getDouble("IMDBRating");
             String fileLink = resultSet.getString("fileLink");
-            String lastView = resultSet.getString("lastVuew");
+            String lastView = resultSet.getString("lastView");
             Movie movie = new Movie(title, userRating, imdbRating, lastView, fileLink, id);
             movieList.add(movie);
         }
@@ -160,7 +160,7 @@ public class CatMovieDAO {
     }
     public void removeCategoryFromMovie(Category category, Movie movie) throws SQLException {
         Connection con = cm.getConnection();
-        PreparedStatement preparedStatement = con.prepareStatement("delete from catmovie where category_id=? and movie_id=?");  //delete row from catmovie table according to category and movie
+        PreparedStatement preparedStatement = con.prepareStatement("delete from catMovie where category_id=? and movie_id=?");  //delete row from catmovie table according to category and movie
         preparedStatement.setInt(1,category.getId());
         preparedStatement.setInt(2,movie.getId());
         preparedStatement.executeUpdate();
