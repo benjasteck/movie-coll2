@@ -143,7 +143,7 @@ public class Controller {
     }
 
     public void deleteMovies(ActionEvent actionEvent) throws SQLException {
-        MovieModel.deleteMovie(movieTable.getSelectionModel().getSelectedItem());
+        movieModel.deleteMovie(movieTable.getSelectionModel().getSelectedItem());
         movieTable.getItems().remove(movieTable.getSelectionModel().getSelectedItem());
     }
 
