@@ -48,6 +48,8 @@ private Movie movie;
     @FXML
     private TextField txt_movieUrl;
 
+
+
     @FXML
     public void cancelEditingMovie(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -108,6 +110,7 @@ private Movie movie;
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
     }
+
 }
 
 

@@ -162,7 +162,9 @@ public class Controller {
 
     public void editMovies(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieWindow.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EDITmovieWindow.fxml"));
+        EditMovieController contrl = loader.<EditMovieController>getController();
+        contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
