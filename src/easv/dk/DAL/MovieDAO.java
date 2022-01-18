@@ -10,14 +10,14 @@ import easv.dk.BE.Movie;
 
 public class MovieDAO {
 
-    easv.dk.DAL.ConnectionManager cm;
+    static easv.dk.DAL.ConnectionManager cm;
 
     public MovieDAO() throws IOException {
         cm = new easv.dk.DAL.ConnectionManager();
     }
 
     //Insert values to the movie table.
-    public Movie createMovie(Movie movie) throws Exception {
+    public static Movie createMovie(Movie movie) throws Exception {
         Movie movieCreated = null;
         Connection con = cm.getConnection();
         String sqlSelectMovie = "INSERT INTO MOVIE VALUES(?,?,?,?,?)";
