@@ -168,10 +168,7 @@ public class Controller {
         column4.setCellValueFactory(new PropertyValueFactory<>("lastView"));
         TableColumn<Movie, String> column5 = new TableColumn<>("Category");
         column5.setCellValueFactory(new PropertyValueFactory<>("category"));
-        TableColumn<Movie, String> columnId = new TableColumn<>("Id");
-        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         categoryTable.getColumns().clear();
-        movieTable.getColumns().add(columnId);
         movieTable.getColumns().add(column1);
         movieTable.getColumns().add(column5);
         movieTable.getColumns().add(column2);
@@ -364,6 +361,8 @@ public class Controller {
 
 
     public void addMovieToCategory(ActionEvent actionEvent) {
+        System.out.println(movieTable.getSelectionModel().getSelectedItem());
+        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
     }
 
     public void testCatMovie(ActionEvent actionEvent) throws SQLException {
@@ -449,10 +448,8 @@ public class Controller {
         }
     }
 
-    public void moveMovieToCategory(ActionEvent actionEvent) {
-        System.out.println(movieTable.getSelectionModel().getSelectedItem());
-        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
-    }
+
+
 /*
     public void addCatMovies(ActionEvent actionEvent) {
         final Movie selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();
