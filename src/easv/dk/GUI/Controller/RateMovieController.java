@@ -42,5 +42,6 @@ public class RateMovieController {
 
     public void saveRating(ActionEvent actionEvent) {
 
+
     }
 }
