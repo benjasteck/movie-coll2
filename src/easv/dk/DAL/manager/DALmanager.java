@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DALmanager implements IDALManager {
-    private CategoryDAO categoryDAO;
+    private static CategoryDAO categoryDAO;
     private MovieDAO movieDAO;
     private CatMovieDAO catMovieDAO;
 
@@ -20,8 +20,6 @@ public class DALmanager implements IDALManager {
         this.movieDAO = new MovieDAO();
         this.catMovieDAO = new CatMovieDAO();
     }
-
-
 
 
     public List<Movie> getAllMovies() throws SQLException {
@@ -45,11 +43,6 @@ public class DALmanager implements IDALManager {
         return categoryDAO.createNewCategory(category);
     }
 
-
-
-
-
-
     @Override
     public void updateMovie(Movie movie) throws SQLException {
        movieDAO.updateMovie(movie);
@@ -58,13 +51,6 @@ public class DALmanager implements IDALManager {
     @Override
     public void updateCategory(String name, int id) throws SQLException {
         categoryDAO.updateCategory(new Category(id,name));
-    }
-
-
-
-
-    public  void deleteCategory(Category category) throws SQLException {
-        categoryDAO.deleteCategory(category);
     }
 
     @Override
@@ -81,11 +67,16 @@ public class DALmanager implements IDALManager {
         movieDAO.deleteMovie(movie);
     }
 
+
     public void addMovieToCategory(Category category,Movie movie) throws SQLException {
         catMovieDAO.AddCategoryToMovie(category,movie);
     }
 
     public void removeMovieFromCategory(Category category,Movie movie) throws SQLException {
 catMovieDAO.removeCategoryFromMovie(category,movie);
+    }
+
+    public void deleteCategory(Category selectedItem) throws SQLException {
+        categoryDAO.deleteCategory(selectedItem);
     }
 }

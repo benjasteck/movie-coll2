@@ -74,19 +74,9 @@ public class Manager implements LogicInterface {
         //categoryDAO.updateCategory(category);
     }
 
-    public void deleteCategory(Category selectedItem) throws SQLException {
-        //DALmanager.deleteCategory(selectedItem);
-
-    }
-
     public void deleteMovie(Movie movie) throws SQLException {
         daLmanager.deleteMovie(movie);
     }
-
-    /*@Override
-    public void deleteCategory(Category category) throws SQLException {
-
-    }*/
 
     public void addMovieToCategory(int movieId, int categoryId) throws SQLException {
         daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
@@ -96,4 +86,7 @@ public class Manager implements LogicInterface {
         daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
     }
 
+    public void deleteCategory(Category selectedItem) throws SQLException {
+        daLmanager.deleteCategory(selectedItem);
+    }
 }

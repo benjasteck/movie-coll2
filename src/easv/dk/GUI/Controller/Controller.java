@@ -133,8 +133,8 @@ public class Controller {
     }
 
     public void deleteCategory(ActionEvent actionEvent) throws SQLException {
-        CategoryModel.deleteCategory(categoryTable.getSelectionModel().getSelectedItem());
-        categoryTable.getItems().remove(categoryTable.getSelectionModel().getSelectedIndex());
+        categoryModel.deleteCategory((Category) categoryTable.getSelectionModel().getSelectedItem());
+        categoryTable.getItems().remove(categoryTable.getSelectionModel().getSelectedItem());
     }
 
     public void deleteMovies(ActionEvent actionEvent) throws SQLException {

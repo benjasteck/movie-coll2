@@ -107,5 +107,6 @@ public class CategoryDAO {
         pststmtDeleteCategory.close();
         con.close();
     }
+
 }
 
