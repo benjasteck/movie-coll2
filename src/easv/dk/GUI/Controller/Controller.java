@@ -126,6 +126,10 @@ public class Controller {
         stage.setTitle("Rate Movie");
         stage.centerOnScreen();
         stage.show();
+
+
+
+
     }
 
 
@@ -411,7 +415,7 @@ public class Controller {
     public void newMovie(ActionEvent actionEvent) {
     }
 
-    //to show category in lisht for each movie
+    //to show category in list for each movie
     public void showMovieCategoriesInList() {
         clearListView();
         mode = MovieSelected;

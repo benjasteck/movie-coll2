@@ -26,6 +26,8 @@ public class MovieModel {
     public static void deleteMovie(Object selectedItem) {
     }
 
+
+
     public void setGetAllMovies(ObservableList<Movie> getAllMovies) {
         this.getAllMovies = getAllMovies;
     }
@@ -35,5 +37,6 @@ public class MovieModel {
         this.getAllMovies.addAll(this.manager.getAllMovies());
         return this.getAllMovies;
     }
+
 
 }
