@@ -138,7 +138,16 @@ public class Controller {
     }
 
 
-    public void editCategory(ActionEvent actionEvent) {
+    public void editCategory(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieWindow.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Edit Movie");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void deleteCategory(ActionEvent actionEvent) throws SQLException {
@@ -147,11 +156,21 @@ public class Controller {
     }
 
     public void deleteMovies(ActionEvent actionEvent) throws SQLException {
-        MovieModel.deleteMovie(movieTable.getSelectionModel().getSelectedItem());
+        movieModel.deleteMovie(movieTable.getSelectionModel().getSelectedItem());
         movieTable.getItems().remove(movieTable.getSelectionModel().getSelectedItem());
     }
 
-    public void editMovies(ActionEvent actionEvent) {
+    public void editMovies(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieWindow.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Edit Movie");
+        stage.centerOnScreen();
+        stage.show();
+
     }
 
 

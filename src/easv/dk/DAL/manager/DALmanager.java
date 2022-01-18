@@ -63,10 +63,6 @@ public class DALmanager implements IDALManager {
         return catMovieDAO.getMovieFromCategory(category);
     }
 
-    public void deleteMovie(Movie movie) throws SQLException {
-        movieDAO.deleteMovie(movie);
-    }
-
 
     public void addMovieToCategory(Category category,Movie movie) throws SQLException {
         catMovieDAO.AddCategoryToMovie(category,movie);
@@ -78,5 +74,9 @@ catMovieDAO.removeCategoryFromMovie(category,movie);
 
     public void deleteCategory(Category selectedItem) throws SQLException {
         categoryDAO.deleteCategory(selectedItem);
+    }
+
+    public void deleteMovie(Movie selectedItem) throws SQLException {
+        movieDAO.deleteMovie(selectedItem);
     }
 }
