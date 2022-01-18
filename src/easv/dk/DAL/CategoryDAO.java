@@ -19,7 +19,7 @@ public class CategoryDAO {
     public Category createNewCategory(Category category) throws Exception {
         Category createdCategory = null;
         Connection con = cm.getConnection();
-        String sqlSelectCategory = "INSERT INTO category VALUES(?)";        //id will be set in database automatically
+        String sqlSelectCategory = "INSERT INTO category (name)VALUES(?)";        //id will be set in database automatically
 
         PreparedStatement pststmtInsertCategory =
                 con.prepareStatement(sqlSelectCategory, Statement.RETURN_GENERATED_KEYS);       //prepared statement is for set query parameters and run query in database

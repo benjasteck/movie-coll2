@@ -41,12 +41,13 @@ public class DALmanager implements IDALManager {
 
     @Override
     public Category createCategory(Category category) throws Exception {
-        return null;
+        categoryDAO.createNewCategory(category);
+        return category;
     }
 
 
     public Category createCategory(String category) throws Exception {
-        return categoryDAO.createNewCategory(category);
+        return categoryDAO.createNewCategory(new Category(category));
     }
 
 
