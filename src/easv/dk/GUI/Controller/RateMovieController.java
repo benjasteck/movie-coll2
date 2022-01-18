@@ -18,6 +18,8 @@ public class RateMovieController {
     @FXML
     private Button btnCancelRatingMovie;
     @FXML
+    private Button btnSaveRating;
+    @FXML
     private Label lblTitle;
 
     public void cancelRatingMovie(ActionEvent actionEvent) {
@@ -35,6 +37,10 @@ public class RateMovieController {
 
     public void setInfo(Movie selectedItem) {
         lblTitle.setText(selectedItem.getTitle());
+
+    }
+
+    public void saveRating(ActionEvent actionEvent) {
 
     }
 }
