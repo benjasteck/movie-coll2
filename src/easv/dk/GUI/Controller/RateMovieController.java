@@ -2,15 +2,19 @@ package easv.dk.GUI.Controller;
 
 
 import easv.dk.BE.Movie;
+import easv.dk.BLL.Manager;
+import easv.dk.GUI.Model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
+import org.controlsfx.control.Rating;
 
 import java.awt.*;
+import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class RateMovieController {
@@ -21,6 +25,18 @@ public class RateMovieController {
     private Button btnSaveRating;
     @FXML
     private Label lblTitle;
+    Manager manager = new Manager();
+    @FXML
+    private TableView<Movie> movieTable;
+    @FXML
+    private Rating boxRating;
+
+    Controller mainController;
+
+
+
+    public RateMovieController() throws IOException {
+    }
 
     public void cancelRatingMovie(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -40,8 +56,19 @@ public class RateMovieController {
 
     }
 
-    public void saveRating(ActionEvent actionEvent) {
 
+    public void saveRating(ActionEvent actionEvent) throws Exception {
+        Double name = boxRating.getRating();
+
+        manager.saveRating(name);
+        mainController.movieTable.refresh();
+        Stage stage = (Stage) btnSaveRating.getScene().getWindow();
+        stage.close();
 
     }
+
+    public void setController(Controller controller) {
+        this.mainController = controller;
+    }
 }
+

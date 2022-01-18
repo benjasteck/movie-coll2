@@ -90,4 +90,17 @@ public class Manager implements LogicInterface {
     public void deleteMovie(Movie selectedItem) throws SQLException {
         daLmanager.deleteMovie(selectedItem);
     }
+
+    @Override
+    public void saveRating(Double rating) throws Exception {
+
+    }
+
+    @Override
+    public void updateMovieRating(Movie rating) throws SQLException {
+        daLmanager.updateMovie(rating);
+    }
 }
+
+
+

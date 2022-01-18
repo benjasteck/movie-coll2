@@ -2,6 +2,7 @@ package easv.dk.BLL;
 
 import easv.dk.BE.Category;
 import easv.dk.BE.Movie;
+import org.controlsfx.control.Rating;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,6 +18,8 @@ public interface LogicInterface {
     public Category createCategory(String category) throws Exception;
 
     public void deleteMovie(Movie movie) throws SQLException;
+
+    public void  saveRating(Double rating) throws Exception;
 
 
 
@@ -35,5 +38,5 @@ public interface LogicInterface {
     public void removeMovieFromCategory(int movieId,int categoryId) throws SQLException;
 
 
-
+    void updateMovieRating(Movie rating) throws SQLException;
 }

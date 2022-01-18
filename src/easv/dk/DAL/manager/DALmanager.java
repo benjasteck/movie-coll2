@@ -79,4 +79,5 @@ catMovieDAO.removeCategoryFromMovie(category,movie);
     public void deleteMovie(Movie selectedItem) throws SQLException {
         movieDAO.deleteMovie(selectedItem);
     }
+
 }
