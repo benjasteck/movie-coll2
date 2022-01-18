@@ -39,9 +39,13 @@ public class DALmanager implements IDALManager {
         return categoryDAO.getAllCategories();
     }
 
-
-
+    @Override
     public Category createCategory(Category category) throws Exception {
+        return null;
+    }
+
+
+    public Category createCategory(String category) throws Exception {
         return categoryDAO.createNewCategory(category);
     }
 
