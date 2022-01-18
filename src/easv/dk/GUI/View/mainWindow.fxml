@@ -12,23 +12,23 @@
 
 <AnchorPane prefHeight="578.0" prefWidth="855.0" style="-fx-background-color: #2F0A28;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.Controller">
    <children>
-      <ListView fx:id="movieInCategory" layoutX="251.0" layoutY="183.0" prefHeight="340.0" prefWidth="200.0" />
-      <TableView fx:id="categoryTable" layoutX="29.0" layoutY="183.0" prefHeight="340.0" prefWidth="200.0" />
-      <TableView fx:id="movieTable" layoutX="501.0" layoutY="183.0" onMouseClicked="#showMovieCategoriesInList" prefHeight="340.0" prefWidth="341.0" />
+      <ListView fx:id="movieInCategory" layoutX="228.0" layoutY="183.0" prefHeight="340.0" prefWidth="200.0" />
+      <TableView fx:id="categoryTable" layoutX="29.0" layoutY="183.0" prefHeight="340.0" prefWidth="157.0" />
+      <TableView fx:id="movieTable" layoutX="494.0" layoutY="183.0" onMouseClicked="#showMovieCategoriesInList" prefHeight="340.0" prefWidth="341.0" />
       <Button fx:id="btnNewCategory" layoutX="29.0" layoutY="530.0" mnemonicParsing="false" onAction="#openNewCategoryWindow" text="New" />
       <Button fx:id="btnEditCategory" layoutX="81.0" layoutY="531.0" mnemonicParsing="false" onAction="#editCategory" text="Edit" />
 
       <Button fx:id="btnDeleteCategory" layoutX="129.0" layoutY="530.0" mnemonicParsing="false" onAction="#deleteCategory" text="Delete" />
-      <Button fx:id="btnRemoveMovies" layoutX="389.0" layoutY="531.0" mnemonicParsing="false" onAction="#removeMovies" text="Delete" />
-      <Button fx:id="btnDeleteMovies" layoutX="614.0" layoutY="530.0" mnemonicParsing="false" onAction="#deleteMovies" text="Delete" />
-      <Button fx:id="btnEditMovies" layoutX="564.0" layoutY="530.0" mnemonicParsing="false" onAction="#editMovies" text="Edit" />
-      <Button fx:id="btnNewMovie" layoutX="509.0" layoutY="530.0" mnemonicParsing="false" onAction="#openNewMovieWindow" text="New" />
+      <Button fx:id="btnRemoveMovies" layoutX="377.0" layoutY="531.0" mnemonicParsing="false" onAction="#removeMovies" text="Delete" />
+      <Button fx:id="btnDeleteMovies" layoutX="608.0" layoutY="531.0" mnemonicParsing="false" onAction="#deleteMovies" text="Delete" />
+      <Button fx:id="btnEditMovies" layoutX="554.0" layoutY="531.0" mnemonicParsing="false" onAction="#editMovies" text="Edit" />
+      <Button fx:id="btnNewMovie" layoutX="494.0" layoutY="531.0" mnemonicParsing="false" onAction="#openNewMovieWindow" text="New" />
       <Label layoutX="29.0" layoutY="151.0" text="Categories" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="251.0" layoutY="151.0" text="Movies in category" textFill="WHITE">
+      <Label layoutX="228.0" layoutY="151.0" text="Movies in category" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -50,8 +50,8 @@
          </font>
       </Button>
       <Button fx:id="btnRateMovie" layoutX="677.0" layoutY="531.0" mnemonicParsing="false" onAction="#openRateMovieWindow" text="Rate movie" />
-      <Button fx:id="btnCloseApplication" layoutX="797.0" layoutY="528.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" />
-      <Button fx:id="btnMovieToCat" layoutX="460.0" layoutY="184.0" mnemonicParsing="false" onAction="#addMovieToCategory" rotate="90.0" text="▼">
+      <Button fx:id="btnCloseApplication" layoutX="793.0" layoutY="543.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" />
+      <Button fx:id="btnMovieToCat" layoutX="443.0" layoutY="182.0" mnemonicParsing="false" onAction="#addMovieToCategory" rotate="90.0" text="▼">
          <font>
             <Font size="14.0" />
          </font>
