@@ -364,6 +364,8 @@ public class Controller {
 
 
     public void addMovieToCategory(ActionEvent actionEvent) {
+        System.out.println(movieTable.getSelectionModel().getSelectedItem());
+        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
     }
 
     public void testCatMovie(ActionEvent actionEvent) throws SQLException {
@@ -449,10 +451,8 @@ public class Controller {
         }
     }
 
-    public void moveMovieToCategory(ActionEvent actionEvent) {
-        System.out.println(movieTable.getSelectionModel().getSelectedItem());
-        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
-    }
+
+
 /*
     public void addCatMovies(ActionEvent actionEvent) {
         final Movie selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();

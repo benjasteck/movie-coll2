@@ -51,7 +51,7 @@
       </Button>
       <Button fx:id="btnRateMovie" layoutX="677.0" layoutY="531.0" mnemonicParsing="false" onAction="#openRateMovieWindow" text="Rate movie" />
       <Button fx:id="btnCloseApplication" layoutX="797.0" layoutY="528.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" />
-      <Button fx:id="btnMovieToCat" layoutX="460.0" layoutY="184.0" mnemonicParsing="false" onAction="#moveMovieToCategory" rotate="90.0" text="▼">
+      <Button fx:id="btnMovieToCat" layoutX="460.0" layoutY="184.0" mnemonicParsing="false" onAction="#addMovieToCategory" rotate="90.0" text="▼">
          <font>
             <Font size="14.0" />
          </font>
