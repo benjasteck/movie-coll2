@@ -14,10 +14,6 @@ import java.util.List;
 
 public class MovieModel {
 
-
-
-
-
     ObservableList<Movie> getAllMovies;
 
 

@@ -48,8 +48,7 @@ public class Manager implements LogicInterface {
 
     @Override
     public easv.dk.BE.Category createCategory(easv.dk.BE.Category category) throws Exception {
-        easv.dk.BE.Category name = null;
-        return daLmanager.createCategory(name);
+        return daLmanager.createCategory(category);
     }
 
 
