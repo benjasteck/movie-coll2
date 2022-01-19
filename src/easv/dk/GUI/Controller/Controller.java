@@ -8,7 +8,6 @@ import easv.dk.BLL.Manager;
 import easv.dk.DAL.CatMovieDAO;
 import easv.dk.GUI.Model.CategoryModel;
 import easv.dk.GUI.Model.MovieModel;
-import javafx.animation.Animation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -20,11 +19,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -478,7 +474,22 @@ public class Controller {
         }
     }
 
-    public void playMovie(ActionEvent actionEvent) {
+    public String getSelectedItem(){
+        Movie movie1 = movieTable.getSelectionModel().getSelectedItem();
+        return movie1.getMovieUrl();
+    }
+
+    public void playMovie(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/mediaPlayer.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Media Player");
+        stage.centerOnScreen();
+        stage.show();
+
     }
 /*
 

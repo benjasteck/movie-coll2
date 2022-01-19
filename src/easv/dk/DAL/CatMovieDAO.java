@@ -95,7 +95,7 @@ public class CatMovieDAO {
             double userRating = resultSet.getDouble("userRating");
             double imdbRating = resultSet.getDouble("IMDBRating");
             String fileLink = resultSet.getString("fileLink");
-            String lastView = resultSet.getString("lastView");
+            Date lastView = resultSet.getDate("lastView");
             Movie movie = new Movie(title, userRating, imdbRating, lastView, fileLink, id);
             movieList.add(movie);
         }

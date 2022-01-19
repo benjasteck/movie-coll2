@@ -76,11 +76,11 @@ public class Manager implements LogicInterface {
 
 
     public void addMovieToCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
+        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, null , "", movieId));
     }
 
     public void removeMovieFromCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
+        daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, null, "", movieId));
     }
 
     public void deleteCategory(Category selectedItem) throws SQLException {
