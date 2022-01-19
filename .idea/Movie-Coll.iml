@@ -11,5 +11,6 @@
     <orderEntry type="library" name="controlsfx-11.1.0" level="project" />
     <orderEntry type="library" name="sqljdbc42" level="project" />
     <orderEntry type="library" name="javax.xml.bind.jaxb.api" level="project" />
+    <orderEntry type="library" name="controlsfx-11.1.01" level="project" />
   </component>
 </module>
