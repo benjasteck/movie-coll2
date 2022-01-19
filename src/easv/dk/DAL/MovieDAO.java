@@ -33,7 +33,7 @@ public class MovieDAO {
         pststmtInsertMovie.setString(4, movie.getMovieUrl());
         pststmtInsertMovie.setDate(5, movie.getLastView());
         pststmtInsertMovie.addBatch();
-        pststmtInsertMovie.executeBatch();
+        pststmtInsertMovie.executeUpdate();
         ResultSet rs = pststmtInsertMovie.getGeneratedKeys();
         while (rs.next()) {
 
