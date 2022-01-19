@@ -107,6 +107,8 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieWindow.fxml"));
         Parent root = loader.load();
+        MovieController movieController=loader.getController();
+        movieController.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -220,10 +222,17 @@ public class Controller {
 
     public void filter() throws SQLException, IOException {
 
-        dataList.addAll(movieModel.getAllMovies1()); //<-- depending on what name the method gets
-        FilteredList<Movie> filteredData = new FilteredList<>(dataList, b -> true);
+
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                dataList.addAll(movieModel.getAllMovies1()); //<-- depending on what name the method gets
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            FilteredList<Movie> filteredData = new FilteredList<>(dataList, b -> true);
             filteredData.setPredicate(movie -> {
                 // If filter text is empty, display all song.
 
@@ -250,12 +259,13 @@ public class Controller {
                 // if nothing found return false
 
             });
+            SortedList<Movie> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(movieTable.comparatorProperty());
+            //show the new list of filtered songs
+            movieTable.setItems(sortedData);
         });
 
-        SortedList<Movie> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(movieTable.comparatorProperty());
-        //show the new list of filtered songs
-        movieTable.setItems(sortedData);
+
 
         //there needs to be a reference in an initialize method for this to work
 
@@ -264,10 +274,15 @@ public class Controller {
 
     public void filterCat() throws SQLException, IOException {
 
-        dataList2.addAll(categoryModel.getAllCategories1()); //<-- depending on what name the method gets
-        FilteredList<Category> filteredData = new FilteredList<>(dataList2, b -> true);
+
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                dataList2.addAll(categoryModel.getAllCategories1()); //<-- depending on what name the method gets
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            FilteredList<Category> filteredData = new FilteredList<>(dataList2, b -> true);
             filteredData.setPredicate(category -> {
                 // If filter text is empty, display all song.
 
@@ -286,12 +301,13 @@ public class Controller {
                     return false;
 
             });
+            SortedList<Category> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(categoryTable.comparatorProperty());
+            //show the new list of filtered songs
+            categoryTable.setItems(sortedData);
         });
 
-        SortedList<Category> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(categoryTable.comparatorProperty());
-        //show the new list of filtered songs
-        categoryTable.setItems(sortedData);
+
 
         //there needs to be a reference in an initialize method for this to work
 

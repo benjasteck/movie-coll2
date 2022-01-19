@@ -17,13 +17,15 @@ import javafx.scene.control.TextField;
 
 
 import javafx.stage.Window;
-import java.awt.*;
+
 import java.io.File;
-import java.util.Calendar;
 import java.util.Date;
 
 public class MovieController {
-
+private Controller controller;
+public void setParentController(Controller controller){
+    this.controller=controller;
+}
 
     @FXML
     private Button btnChooseFile;
@@ -110,6 +112,7 @@ public class MovieController {
         MovieDAO.createMovie(movieCreated);
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
+        this.controller.initialize();
     }
 
 }

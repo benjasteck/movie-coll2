@@ -93,7 +93,7 @@ public class MediaPlayerController implements Initializable {
                 @Override
                 public void invalidated(Observable observable) {
                     mediaPlayer.setVolume(volSlider.getValue()/100);
-                    
+
                 }
             });
 
