@@ -21,6 +21,7 @@ public class Test {
         // getCategoryById();
         //updateCategory();
         //deleteCategory();
+
     }
 
     private static void deleteCategory() {
