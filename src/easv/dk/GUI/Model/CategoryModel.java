@@ -19,7 +19,6 @@ public class CategoryModel {
     Manager manager = new Manager();
 
 
-
     private void setListCategory() {
         //  getAllCategories.setAll(Manager.getAllCategories);
     }
@@ -36,8 +35,7 @@ public class CategoryModel {
         return this.getAllCategories;
     }
 
-    public static void deleteCategory(Object selectedItem) throws SQLException {
-        //Manager.deleteCategory(selectedItem);
+    public void deleteCategory(Category selectedItem) throws SQLException {
+        manager.deleteCategory(selectedItem);
     }
-
 }

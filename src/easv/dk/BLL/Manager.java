@@ -3,13 +3,9 @@ package easv.dk.BLL;
 
 import easv.dk.BE.Category;
 import easv.dk.BE.Movie;
-import easv.dk.DAL.CatMovieDAO;
-import easv.dk.DAL.CategoryDAO;
-import easv.dk.DAL.MovieDAO;
 import easv.dk.DAL.manager.DALmanager;
 
 import java.io.IOException;
-import java.lang.management.MonitorInfo;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -46,12 +42,8 @@ public class Manager implements LogicInterface {
         return daLmanager.getAllCategories();
     }
 
+
     @Override
-    public easv.dk.BE.Category createCategory(easv.dk.BE.Category category) throws Exception {
-        return daLmanager.createCategory(category);
-    }
-
-
     public Category createCategory(String name) throws Exception {
         return daLmanager.createCategory(name);
     }
@@ -82,26 +74,20 @@ public class Manager implements LogicInterface {
         //categoryDAO.updateCategory(category);
     }
 
-    public void deleteCategory(Category selectedItem) throws SQLException {
-        //DALmanager.deleteCategory(selectedItem);
-
-    }
-
-    public void deleteMovie(Movie movie) throws SQLException {
-        daLmanager.deleteMovie(movie);
-    }
-
-    /*@Override
-    public void deleteCategory(Category category) throws SQLException {
-
-    }*/
 
     public void addMovieToCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
+        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, null , "", movieId));
     }
 
     public void removeMovieFromCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
+        daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, null, "", movieId));
     }
 
+    public void deleteCategory(Category selectedItem) throws SQLException {
+        daLmanager.deleteCategory(selectedItem);
+    }
+
+    public void deleteMovie(Movie selectedItem) throws SQLException {
+        daLmanager.deleteMovie(selectedItem);
+    }
 }

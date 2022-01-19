@@ -39,7 +39,7 @@ public class Controller {
     @FXML
     private TableView categoryTable;
     @FXML
-    private TableView movieTable;
+    private TableView<Movie> movieTable;
     @FXML
     private Button btnNewCategory;
     @FXML
@@ -71,6 +71,7 @@ public class Controller {
     private final static int MovieSelected = 0;   //constant
     private final static int CategorySelected = 1;        //constant
     private int mode = MovieSelected;
+    //private Animation mediaPlayer;
 
     // MediaPlayer mediaPlayer;
     //    int currentMovie = -1;
@@ -118,29 +119,56 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/rateMovieWindow.fxml"));
         Parent root = loader.load();
+        RateMovieController contrl = loader.<RateMovieController>getController();
+        contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.setTitle("Rate Movie");
         stage.centerOnScreen();
         stage.show();
+
+
+
+
     }
 
 
-    public void editCategory(ActionEvent actionEvent) {
+    public void editCategory(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieWindow.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Edit Movie");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void deleteCategory(ActionEvent actionEvent) throws SQLException {
-        CategoryModel.deleteCategory(categoryTable.getSelectionModel().getSelectedItem());
-        categoryTable.getItems().remove(categoryTable.getSelectionModel().getSelectedIndex());
+        categoryModel.deleteCategory((Category) categoryTable.getSelectionModel().getSelectedItem());
+        categoryTable.getItems().remove(categoryTable.getSelectionModel().getSelectedItem());
     }
 
     public void deleteMovies(ActionEvent actionEvent) throws SQLException {
-        MovieModel.deleteMovie(movieTable.getSelectionModel().getSelectedItem());
+        movieModel.deleteMovie(movieTable.getSelectionModel().getSelectedItem());
         movieTable.getItems().remove(movieTable.getSelectionModel().getSelectedItem());
     }
 
-    public void editMovies(ActionEvent actionEvent) {
+    public void editMovies(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EDITmovieWindow.fxml"));
+        EditMovieController contrl = loader.<EditMovieController>getController();
+        contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Edit Movie");
+        stage.centerOnScreen();
+        stage.show();
+
     }
 
 
@@ -166,10 +194,7 @@ public class Controller {
         column4.setCellValueFactory(new PropertyValueFactory<>("lastView"));
         TableColumn<Movie, String> column5 = new TableColumn<>("Category");
         column5.setCellValueFactory(new PropertyValueFactory<>("category"));
-        TableColumn<Movie, String> columnId = new TableColumn<>("Id");
-        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         categoryTable.getColumns().clear();
-        movieTable.getColumns().add(columnId);
         movieTable.getColumns().add(column1);
         movieTable.getColumns().add(column5);
         movieTable.getColumns().add(column2);
@@ -362,6 +387,8 @@ public class Controller {
 
 
     public void addMovieToCategory(ActionEvent actionEvent) {
+        System.out.println(movieTable.getSelectionModel().getSelectedItem());
+        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
     }
 
     public void testCatMovie(ActionEvent actionEvent) throws SQLException {
@@ -410,7 +437,7 @@ public class Controller {
     public void newMovie(ActionEvent actionEvent) {
     }
 
-    //to show category in lisht for each movie
+    //to show category in list for each movie
     public void showMovieCategoriesInList() {
         clearListView();
         mode = MovieSelected;
@@ -447,10 +474,66 @@ public class Controller {
         }
     }
 
-    public void moveMovieToCategory(ActionEvent actionEvent) {
-        System.out.println(movieTable.getSelectionModel().getSelectedItem());
-        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
+    public String getSelectedItem(){
+        Movie movie1 = movieTable.getSelectionModel().getSelectedItem();
+        return movie1.getMovieUrl();
     }
+
+    public void playMovie(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/mediaPlayer.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Media Player");
+        stage.centerOnScreen();
+        stage.show();
+
+    }
+/*
+
+        if (mediaPlayer != null && currentMovie == movieTable.getSelectionModel().getSelectedIndex()) {
+            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+                mediaPlayer.pause();
+            else if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
+                mediaPlayer.play();
+            }
+        } else {
+            currentMovie = movieTable.getSelectionModel().getFocusedIndex();
+            play();
+    }
+        private void play() {
+
+            if (mediaPlayer != null) {
+                stopMediaPlayer();
+            }
+
+            File file = new File(movieTable.getItems().get(currentMovie).getSongFile());
+
+            Media media = new Media(file.toURI().toString());
+            mediaPlayer = new Animation(media) {
+
+            };
+            mediaPlayer.play();
+
+            mediaPlayer.setOnEndOfMedia(() -> { // On end of media checks if the next song is valid to be played.
+                if (movieTable.getSelectionModel().getSelectedIndex() != -1) {
+                    if (movieTable.getItems().size() == currentMovie + 1) {
+                        currentMovie = 0; // If the last element of the list is reached. Restarts the counter back to 0
+                    } else {
+                        currentMovie++;
+                    }
+                    play(); //Calls itself to continue playing
+                } else {
+                    stopMediaPlayer(); //If no song is selected. Then stop the playing music.
+                }
+            });
+        }
+*/
+
+
+
 /*
     public void addCatMovies(ActionEvent actionEvent) {
         final Movie selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();
@@ -483,6 +566,8 @@ public class Controller {
         }
         */
     }
+
+
 
 /*
     private void showCategorySelectForMovie(Movie selectedItem) {

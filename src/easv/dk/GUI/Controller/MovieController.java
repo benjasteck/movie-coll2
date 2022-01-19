@@ -20,9 +20,10 @@ import javafx.stage.Window;
 import java.awt.*;
 import java.io.File;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MovieController {
-private Movie movie;
+
 
     @FXML
     private Button btnChooseFile;
@@ -47,6 +48,8 @@ private Movie movie;
 
     @FXML
     private TextField txt_movieUrl;
+
+
 
     @FXML
     public void cancelEditingMovie(ActionEvent actionEvent) {
@@ -100,14 +103,15 @@ private Movie movie;
         String title = txt_title.getText();
         Double imdbRating = Double.parseDouble(txt_ImbdRating.getText());
         Double userRating = Double.parseDouble(txt_userRating.getText());
-        String lastView = movie.getLastView();
+        Date lastView = null;
         String movieUrl = txt_movieUrl.getText();
 
-        Movie movieCreated = new Movie(title, userRating, imdbRating, lastView, movieUrl, 0);
+        Movie movieCreated = new Movie(title, userRating, imdbRating, null, movieUrl, 0);
         MovieDAO.createMovie(movieCreated);
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
     }
+
 }
 
 
