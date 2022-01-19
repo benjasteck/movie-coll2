@@ -133,7 +133,7 @@ public class Test {
     public static void updateMovie() throws IOException, SQLException {
         MovieDAO movieDAO = new MovieDAO();
         Movie movie = new Movie("John wick 3", 3, 4.5, null, "C://Movies/johnWick3.mp4", 19);
-        movieDAO.updateMovie();
+        movieDAO.updateMovie(movie);
     }
 
     public static void deleteMovie() throws SQLException, IOException {

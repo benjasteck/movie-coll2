@@ -2,6 +2,7 @@ package easv.dk.DAL;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,7 @@ public class MovieDAO {
         return movieList;
     }
 
-    public Movie updateMovie() throws SQLException {
+    public Movie updateMovie(Movie movie) throws SQLException {
         Connection con = cm.getConnection();
         String sqlUpdateMovie = "UPDATE  MOVIE SET title=?, userrating=?, filelink=? WHERE ID=?;";
         PreparedStatement pststmtUpdateMovie = con.prepareStatement(sqlUpdateMovie, Statement.RETURN_GENERATED_KEYS);
