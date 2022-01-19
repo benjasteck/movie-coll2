@@ -11,14 +11,14 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" style="-fx-background-color: #2F0A28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.MediaPlayerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="945.0" style="-fx-background-color: #2F0A28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.MediaPlayerController">
    <center>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
+      <StackPane layoutY="505.0" prefHeight="505.0" prefWidth="1010.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="900.0" fitWidth="1600.0" />
-            <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="400.0" />
+            <VBox alignment="BOTTOM_CENTER" prefHeight="799.0" prefWidth="1010.0">
                <children>
-                  <Slider fx:id="timeSlider" prefHeight="18.0" prefWidth="1894.0">
+                  <Slider fx:id="timeSlider" prefHeight="17.0" prefWidth="1599.0">
                      <VBox.margin>
                         <Insets left="3.0" right="3.0" />
                      </VBox.margin>
@@ -34,7 +34,7 @@
                         <Button fx:id="speedDownBtn" mnemonicParsing="false" onAction="#speedDown" prefHeight="35.0" prefWidth="45.0" text="&lt;&lt;&lt;" />
                         <Button fx:id="speedUpBtn" mnemonicParsing="false" onAction="#speedUp" prefHeight="35.0" prefWidth="45.0" text="&gt;&gt;&gt;" />
                         <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="45.0" text="Button" />
-                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="1319.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="967.0">
                            <children>
                               <Button fx:id="chooseBtn" mnemonicParsing="false" onAction="#choose" text="choose" />
                            </children></HBox>
