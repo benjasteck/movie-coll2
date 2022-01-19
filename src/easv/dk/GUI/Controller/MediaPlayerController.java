@@ -97,6 +97,8 @@ public class MediaPlayerController implements Initializable {
                 }
             });
 
+            mediaPlayer.play();
+
 
 
         }
