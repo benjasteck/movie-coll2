@@ -4,6 +4,7 @@ import easv.dk.BE.Category;
 import easv.dk.BE.Movie;
 import org.controlsfx.control.Rating;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
