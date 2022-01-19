@@ -39,7 +39,6 @@ public class DALmanager implements IDALManager {
 
 
     public Category createCategory(String category) throws Exception {
-
         return categoryDAO.createNewCategory(category);
     }
 
@@ -60,11 +59,9 @@ public class DALmanager implements IDALManager {
 
     @Override
     public Movie updateMovie(Movie movie) throws SQLException {
-         return movieDAO.updateMovie(movie);
-
+         return movieDAO.updateMovie();
     }
-
-
+    
     public void addMovieToCategory(Category category,Movie movie) throws SQLException {
         catMovieDAO.AddCategoryToMovie(category,movie);
     }
@@ -81,4 +78,7 @@ public class DALmanager implements IDALManager {
         movieDAO.deleteMovie(selectedItem);
     }
 
+    public void saveRating() throws SQLException {
+        movieDAO.updateMovie();
+    }
 }

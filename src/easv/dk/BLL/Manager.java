@@ -97,7 +97,7 @@ public class Manager implements LogicInterface {
     }
 
     public void saveRating(Movie movie) throws Exception {
-        daLmanager.updateMovie(movie);
+        daLmanager.saveRating();
     }
 
 

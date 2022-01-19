@@ -35,7 +35,6 @@ public class EditMovieController {
 
     Manager manager = new Manager();
 
-
     public EditMovieController() throws IOException {
     }
 
@@ -58,7 +57,6 @@ public class EditMovieController {
         manager.updateMovie(movieUpdated);
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
-
     }
 
 
