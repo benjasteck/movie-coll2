@@ -144,7 +144,7 @@ public class Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("Edit Movie");
+        stage.setTitle("Edit Category");
         stage.centerOnScreen();
         stage.show();
     }
