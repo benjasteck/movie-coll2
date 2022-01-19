@@ -474,12 +474,14 @@ public class Controller {
         }
     }
 
-    public Movie getSelectedItem(){
-        return movieTable.getSelectionModel().getSelectedItem();
+    public String getSelectedItem(){
+        Movie movie1 = movieTable.getSelectionModel().getSelectedItem();
+        return movie1.getMovieUrl();
     }
 
     public void playMovie(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
+
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/mediaPlayer.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
@@ -488,6 +490,7 @@ public class Controller {
         stage.setTitle("Media Player");
         stage.centerOnScreen();
         stage.show();
+
     }
 /*
 
