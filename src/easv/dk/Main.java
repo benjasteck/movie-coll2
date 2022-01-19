@@ -24,7 +24,7 @@ public class Main extends Application {
         stage.setTitle("Which movie do you wanna watch today?");
         stage.setScene(scene);
         stage.show();
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Remember to delete movies that have a personal rating under 6 and have not been opened in more than 2 years", ButtonType.OK);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Remember to delete movies that have a personal rating under 6 and have not been opened in more than 2 years.", ButtonType.OK);
         alert.getDialogPane().setPrefSize(350, 180);
         alert.showAndWait();
     }
