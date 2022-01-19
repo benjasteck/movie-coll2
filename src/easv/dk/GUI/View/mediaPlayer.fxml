@@ -10,32 +10,30 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.MediaPlayerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" style="-fx-background-color: #2F0A28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.MediaPlayerController">
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <MediaView fx:id="mediaView" fitHeight="260.0" fitWidth="416.0" />
+            <MediaView fx:id="mediaView" fitHeight="900.0" fitWidth="1600.0" />
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <VBox fx:id="vBoxUi" alignment="CENTER" prefHeight="18.0" prefWidth="600.0">
-                     <children>
-                        <Slider fx:id="timeSlider" prefHeight="99.0" prefWidth="489.0">
-                           <VBox.margin>
-                              <Insets left="3.0" right="3.0" />
-                           </VBox.margin>
-                        </Slider>
-                     </children>
-                  </VBox>
-                  <HBox fx:id="hBoxUi" alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="600.0" spacing="7.0">
+                  <Slider fx:id="timeSlider" prefHeight="18.0" prefWidth="1894.0">
+                     <VBox.margin>
+                        <Insets left="3.0" right="3.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <VBox fx:id="vBoxUi" alignment="CENTER" prefHeight="0.0" prefWidth="1900.0" />
+                  <HBox fx:id="hBoxUi" alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="1900.0" spacing="7.0">
                      <children>
                         <VBox prefHeight="53.0" prefWidth="0.0" />
-                        <Button fx:id="playPauseBtn" mnemonicParsing="false" onAction="#playPause" prefHeight="50.0" prefWidth="55.0" text="▶">
+                        <Button fx:id="playPauseBtn" mnemonicParsing="false" onAction="#playPause" prefHeight="35.0" prefWidth="55.0" text="▶">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
                         <Button fx:id="speedDownBtn" mnemonicParsing="false" onAction="#speedDown" prefHeight="35.0" prefWidth="45.0" text="&lt;&lt;&lt;" />
                         <Button fx:id="speedUpBtn" mnemonicParsing="false" onAction="#speedUp" prefHeight="35.0" prefWidth="45.0" text="&gt;&gt;&gt;" />
-                        <HBox prefHeight="73.0" prefWidth="276.0">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="45.0" text="Button" />
+                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="220.0">
                            <children>
                               <Button fx:id="chooseBtn" mnemonicParsing="false" onAction="#choose" text="choose" />
                            </children></HBox>
