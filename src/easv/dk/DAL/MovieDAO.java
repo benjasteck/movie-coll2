@@ -86,7 +86,6 @@ public class MovieDAO {
         pststmtUpdateMovie.setString(1, movie.getTitle());
         pststmtUpdateMovie.setDouble(2, movie.getUserRating());
         pststmtUpdateMovie.setString(3, movie.getMovieUrl());
-
         pststmtUpdateMovie.setInt(4, movie.getId());
         pststmtUpdateMovie.executeUpdate();
         pststmtUpdateMovie.close();

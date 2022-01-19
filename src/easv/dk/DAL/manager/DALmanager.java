@@ -70,7 +70,7 @@ public class DALmanager implements IDALManager {
     }
 
     public void removeMovieFromCategory(Category category,Movie movie) throws SQLException {
-catMovieDAO.removeCategoryFromMovie(category,movie);
+        catMovieDAO.removeCategoryFromMovie(category,movie);
     }
 
     public void deleteCategory(Category selectedItem) throws SQLException {

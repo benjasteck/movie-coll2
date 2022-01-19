@@ -32,7 +32,7 @@ public class RateMovieController {
     private Rating boxRating;
 
     Controller mainController;
-
+    Movie movie;
 
 
     public RateMovieController() throws IOException {
@@ -53,14 +53,15 @@ public class RateMovieController {
 
     public void setInfo(Movie selectedItem) {
         lblTitle.setText(selectedItem.getTitle());
-
+        movie = selectedItem;
     }
 
 
     public void saveRating(ActionEvent actionEvent) throws Exception {
         Double name = boxRating.getRating();
 
-        manager.saveRating(name);
+        movie.setUserRating( name.intValue());
+        manager.saveRating(movie);
         mainController.movieTable.refresh();
         Stage stage = (Stage) btnSaveRating.getScene().getWindow();
         stage.close();

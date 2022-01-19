@@ -60,9 +60,9 @@ public class MediaPlayerController implements Initializable {
         //playMedia(movieUrl);
     }
 
-    public void playMedia(String movieUrl) {
+    public void playMedia() {
      if (movieUrl != null){
-         Media media = new Media(movieUrl);
+         Media media = new Media(new File(movieUrl).toURI().toString());
          mediaPlayer = new MediaPlayer(media);
          mediaView.setMediaPlayer(mediaPlayer);
 
@@ -112,6 +112,7 @@ public class MediaPlayerController implements Initializable {
             pressed = 0;
         }
         if (pressed == 1) {
+            playMedia();
             mediaPlayer.play();
             playPauseBtn.setText("⏸");
         }
@@ -139,5 +140,7 @@ public class MediaPlayerController implements Initializable {
     }
 
 
-
+    public void setInfo(Movie selectedItem) {
+        movieUrl = selectedItem.getMovieUrl();
+    }
 }

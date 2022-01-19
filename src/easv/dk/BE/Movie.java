@@ -36,7 +36,7 @@ public class Movie{
         }
 
         public Date getLastView() {
-                return null;
+                return lastView;
         }
 
         public String getMovieUrl() {

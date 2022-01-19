@@ -484,6 +484,9 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/mediaPlayer.fxml"));
         Parent root = loader.load();
+
+        MediaPlayerController contrl = loader.<MediaPlayerController>getController();
+        contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);

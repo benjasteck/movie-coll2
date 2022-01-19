@@ -19,7 +19,7 @@ public interface LogicInterface {
 
     public void deleteMovie(Movie movie) throws SQLException;
 
-    public void  saveRating(Double rating) throws Exception;
+    public void  saveRating(Movie rating) throws Exception;
 
 
 

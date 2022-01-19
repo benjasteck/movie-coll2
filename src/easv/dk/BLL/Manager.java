@@ -83,12 +83,21 @@ public class Manager implements LogicInterface {
         daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, null, "", movieId));
     }
 
+    @Override
+    public void updateMovieRating(Movie rating) throws SQLException {
+
+    }
+
     public void deleteCategory(Category selectedItem) throws SQLException {
         daLmanager.deleteCategory(selectedItem);
     }
 
     public void deleteMovie(Movie selectedItem) throws SQLException {
         daLmanager.deleteMovie(selectedItem);
+    }
+
+    public void saveRating(Movie movie) throws Exception {
+        daLmanager.updateMovie(movie);
     }
 
 
