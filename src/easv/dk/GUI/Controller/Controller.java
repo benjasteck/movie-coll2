@@ -159,9 +159,9 @@ public class Controller {
     public void editMovies(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EDITmovieWindow.fxml"));
-        EditMovieController contrl = loader.<EditMovieController>getController();
-        contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Parent root = loader.load();
+        EditMovieController control = loader.<EditMovieController>getController();
+        control.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);

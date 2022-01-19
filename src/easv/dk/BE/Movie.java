@@ -20,8 +20,6 @@ public class Movie{
                 this.Id = Id;
         }
 
-        //public Movie(String spiderMan2, String s, String s1, String s2, String movieUrl) {
-      //  }
 
         public int getId() {
                 return Id;

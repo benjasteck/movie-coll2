@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.EditMovieController">
+<AnchorPane prefHeight="366.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.EditMovieController">
    <children>
       <Label layoutX="47.0" layoutY="56.0" prefHeight="27.0" prefWidth="86.0" text="Title:">
          <font>
@@ -32,15 +32,15 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxCategory" layoutX="194.0" layoutY="201.0" prefWidth="150.0" />
-      <Button fx:id="btnSaveMovie" layoutX="406.0" layoutY="336.0" mnemonicParsing="false" onAction="#saveNewMovie" prefHeight="25.0" prefWidth="51.0" text="Save" />
-      <Button fx:id="btnCancelEditingMovie" layoutX="472.0" layoutY="336.0" mnemonicParsing="false" onAction="#cancelEditingMovie" text="Cancel" />
-      <Label layoutX="47.0" layoutY="251.0" text="File:">
+      <ComboBox fx:id="comboBoxCategory" layoutX="194.0" layoutY="201.0" prefHeight="26.0" prefWidth="160.0" />
+      <Button fx:id="btnSaveMovie" layoutX="366.0" layoutY="315.0" mnemonicParsing="false" onAction="#updateMovie" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="btnCancelEditingMovie" layoutX="440.0" layoutY="315.0" mnemonicParsing="false" onAction="#cancelEditingMovie" text="Cancel" />
+      <TextField fx:id="txt_movieUrl" layoutX="194.0" layoutY="242.0" />
+      <Button fx:id="btnChooseFile" layoutX="366.0" layoutY="242.0" mnemonicParsing="false" onAction="#chooseFile" text="Choose" />
+      <Label layoutX="54.0" layoutY="244.0" text="File:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txt_movieUrl" layoutX="194.0" layoutY="252.0" />
-      <Button fx:id="btnChooseFile" layoutX="364.0" layoutY="252.0" mnemonicParsing="false" onAction="#chooseFile" text="Choose" />
    </children>
 </AnchorPane>

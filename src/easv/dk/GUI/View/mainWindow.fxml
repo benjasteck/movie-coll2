@@ -14,7 +14,7 @@
    <children>
       <ListView fx:id="movieInCategory" layoutX="228.0" layoutY="183.0" prefHeight="340.0" prefWidth="200.0" />
       <TableView fx:id="categoryTable" layoutX="29.0" layoutY="183.0" prefHeight="340.0" prefWidth="165.0" />
-      <TableView fx:id="movieTable" layoutX="484.0" layoutY="183.0" onMouseClicked="#showMovieCategoriesInList" prefHeight="340.0" prefWidth="421.0" />
+      <TableView fx:id="movieTable" layoutX="484.0" layoutY="183.0" onMouseClicked="#showMovieCategoriesInList" prefHeight="340.0" prefWidth="453.0" />
       <Button fx:id="btnNewCategory" layoutX="29.0" layoutY="530.0" mnemonicParsing="false" onAction="#openNewCategoryWindow" text="New" />
       <Button fx:id="btnEditCategory" layoutX="81.0" layoutY="531.0" mnemonicParsing="false" onAction="#editCategory" text="Edit" />
 
@@ -38,17 +38,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="searchBar" layoutX="733.0" layoutY="60.0" prefHeight="26.0" prefWidth="129.0" />
+      <TextField fx:id="searchBar" layoutX="733.0" layoutY="60.0" prefHeight="26.0" prefWidth="185.0" />
       <Label layoutX="670.0" layoutY="62.0" text="Search:" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="874.0" layoutY="57.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" text="🔎">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Button>
       <Button fx:id="btnRateMovie" layoutX="677.0" layoutY="531.0" mnemonicParsing="false" onAction="#openRateMovieWindow" text="Rate movie" />
       <Button fx:id="btnCloseApplication" layoutX="882.0" layoutY="542.0" mnemonicParsing="false" onAction="#closeApplication" text="Close" />
       <Button fx:id="btnMovieToCat" layoutX="443.0" layoutY="182.0" mnemonicParsing="false" onAction="#addMovieToCategory" rotate="90.0" text="▼">

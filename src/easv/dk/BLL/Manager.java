@@ -33,8 +33,8 @@ public class Manager implements LogicInterface {
 
     @Override
     public Movie createMovie(Movie movie) throws Exception {
-        // return daLmanager.createMovie(movie);
-        return null;
+        return daLmanager.createMovie(movie);
+
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Manager implements LogicInterface {
 
     @Override
     public void updateMovie(Movie movie) throws SQLException {
-        //daLmanager.updateMovie(movie);
+        daLmanager.updateMovie(movie);
     }
 
     @Override
@@ -90,4 +90,6 @@ public class Manager implements LogicInterface {
     public void deleteMovie(Movie selectedItem) throws SQLException {
         daLmanager.deleteMovie(selectedItem);
     }
+
+
 }

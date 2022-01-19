@@ -2,6 +2,7 @@ package easv.dk.DAL;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class MovieDAO {
 
 
     private static ConnectionManager cm;
-
+    private Movie movie;
 
 
     public MovieDAO() throws IOException {
@@ -78,18 +79,20 @@ public class MovieDAO {
         return movieList;
     }
 
-    public void updateMovie(Movie movie) throws SQLException {
+    public Movie updateMovie(Movie movie) throws SQLException {
         Connection con = cm.getConnection();
-        String sqlUpdateMovie = "UPDATE  Movie SET title=?, userrating=?, filelink=?,lastview=? WHERE ID=?;";
+        String sqlUpdateMovie = "UPDATE  MOVIE SET title=?, userrating=?, filelink=? WHERE ID=?;";
         PreparedStatement pststmtUpdateMovie = con.prepareStatement(sqlUpdateMovie, Statement.RETURN_GENERATED_KEYS);
         pststmtUpdateMovie.setString(1, movie.getTitle());
         pststmtUpdateMovie.setDouble(2, movie.getUserRating());
         pststmtUpdateMovie.setString(3, movie.getMovieUrl());
-        pststmtUpdateMovie.setString(4, String.valueOf(movie.getLastView()));
-        pststmtUpdateMovie.setInt(5, movie.getId());
+
+        pststmtUpdateMovie.setInt(4, movie.getId());
         pststmtUpdateMovie.executeUpdate();
         pststmtUpdateMovie.close();
         con.close();
+
+        return movie;
     }
 
     public void deleteMovie(Movie movie) throws SQLException {

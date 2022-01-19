@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
+    private static String title;
+    private static String imbdRating;
+    private static String userRating;
+
     public static void main(String[] args) throws Exception {
         // createMovie();
         //getAllMovie();
