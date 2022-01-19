@@ -2,7 +2,6 @@ package easv.dk.BLL;
 
 import easv.dk.BE.Category;
 import easv.dk.BE.Movie;
-import org.controlsfx.control.Rating;
 
 
 import java.sql.SQLException;
@@ -34,7 +33,7 @@ public interface LogicInterface {
 
     public void updateCategory(String name, int id) throws SQLException;
 
-    public void addMovieToCategory(int movieId,int categoryId) throws SQLException;
+    public void addMovieToCategory(Category movieId, Movie categoryId) throws SQLException;
 
     public void removeMovieFromCategory(int movieId,int categoryId) throws SQLException;
 

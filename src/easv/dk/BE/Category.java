@@ -59,4 +59,7 @@ public class Category {
     public String toString() {
         return  name ;
     }
+    public void setAllMoviesInCategory(List<Movie> allMoviesInCategory) {
+        this.moviesInCategory = allMoviesInCategory;
+    }
 }

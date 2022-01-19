@@ -68,8 +68,8 @@ public class Manager implements LogicInterface {
     }
 
 
-    public void addMovieToCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, null , "", movieId));
+    public void addMovieToCategory(Category selectedItem, Movie selectedMovie) throws SQLException{
+        daLmanager.addMovieToCategory(selectedItem, selectedMovie);
     }
 
     public void removeMovieFromCategory(int movieId, int categoryId) throws SQLException {

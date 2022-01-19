@@ -404,8 +404,12 @@ public class Controller {
 
 
     public void addMovieToCategory(ActionEvent actionEvent) {
-        System.out.println(movieTable.getSelectionModel().getSelectedItem());
-        movieInCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
+        if (categoryTable.getSelectionModel().getSelectedIndex() != -1 && movieTable.getSelectionModel().getSelectedIndex() != -1) {
+            try {
+                categoryModel.addToCategory((Category) categoryTable.getSelectionModel().getSelectedItem(), categoryTable.getSelectionModel().getSelectedIndex(), movieTable.getSelectionModel().getSelectedItem());
+            } catch (Exception ex) {
+            }
+        }
     }
 
     public void testCatMovie(ActionEvent actionEvent) throws SQLException {
