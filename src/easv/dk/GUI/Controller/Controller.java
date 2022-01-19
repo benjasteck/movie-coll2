@@ -481,7 +481,6 @@ public class Controller {
 
     public void playMovie(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/mediaPlayer.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
