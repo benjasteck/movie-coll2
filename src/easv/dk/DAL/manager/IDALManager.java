@@ -24,7 +24,7 @@ public interface IDALManager {
 
     public List<Movie> getMoviesFromCategories(Category category) throws SQLException;
 
-    public void updateMovie(Movie movie) throws SQLException;
+    public Movie updateMovie(Movie movie) throws SQLException;
 
     public void updateCategory(String name, int id) throws SQLException;
 

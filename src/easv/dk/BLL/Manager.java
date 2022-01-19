@@ -33,8 +33,8 @@ public class Manager implements LogicInterface {
 
     @Override
     public Movie createMovie(Movie movie) throws Exception {
-        // return daLmanager.createMovie(movie);
-        return null;
+        return daLmanager.createMovie(movie);
+
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Manager implements LogicInterface {
 
     @Override
     public void updateMovie(Movie movie) throws SQLException {
-        //daLmanager.updateMovie(movie);
+        daLmanager.updateMovie(movie);
     }
 
     @Override
@@ -76,11 +76,11 @@ public class Manager implements LogicInterface {
 
 
     public void addMovieToCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
+        daLmanager.addMovieToCategory(new Category(categoryId, ""), new Movie("", 0, 0, null , "", movieId));
     }
 
     public void removeMovieFromCategory(int movieId, int categoryId) throws SQLException {
-        daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, "", "", movieId));
+        daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, null, "", movieId));
     }
 
     public void deleteCategory(Category selectedItem) throws SQLException {
@@ -91,16 +91,5 @@ public class Manager implements LogicInterface {
         daLmanager.deleteMovie(selectedItem);
     }
 
-    @Override
-    public void saveRating(Double rating) throws Exception {
 
-    }
-
-    @Override
-    public void updateMovieRating(Movie rating) throws SQLException {
-        daLmanager.updateMovie(rating);
-    }
 }
-
-
-

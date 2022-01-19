@@ -1,15 +1,17 @@
 package easv.dk.BE;
 
+import java.sql.Date;
+
 public class Movie{
         private String title;
         private double userRating;
         private double imdbRating;
         private String movieUrl;
-        private String lastView;
+        private Date lastView;
         private int Id;
         private String category;
 
-        public Movie(String title, double userRating, double imdbRating, String lastView, String movieUrl, int Id) {
+        public Movie(String title, double userRating, double imdbRating, Date lastView, String movieUrl, int Id) {
                 this.title = title;
                 this.userRating = userRating;
                 this.imdbRating = imdbRating;
@@ -18,8 +20,6 @@ public class Movie{
                 this.Id = Id;
         }
 
-        //public Movie(String spiderMan2, String s, String s1, String s2, String movieUrl) {
-      //  }
 
         public int getId() {
                 return Id;
@@ -35,8 +35,8 @@ public class Movie{
                 return imdbRating;
         }
 
-        public String getLastView() {
-                return "18/1/2022";
+        public Date getLastView() {
+                return null;
         }
 
         public String getMovieUrl() {
@@ -59,7 +59,7 @@ public class Movie{
                 this. movieUrl =  movieUrl;
         }
 
-        public void setLastView(String lastView) {
+        public void setLastView(Date lastView) {
                 this.lastView = lastView;
         }
 
