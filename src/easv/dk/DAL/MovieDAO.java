@@ -2,7 +2,6 @@ package easv.dk.DAL;
 
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +101,19 @@ public class MovieDAO {
         pststmtDeleteMovie.execute();
         pststmtDeleteMovie.close();
         con.close();
+    }
+
+    public Movie saveRating (Movie movie) throws SQLException {
+        Connection con = cm.getConnection();
+        String sqlUpdateMovie = "UPDATE  MOVIE SET  userrating=?, WHERE ID=?;";
+        PreparedStatement pststmtUpdateMovie = con.prepareStatement(sqlUpdateMovie, Statement.RETURN_GENERATED_KEYS);
+        pststmtUpdateMovie.setDouble(2, movie.getUserRating());
+        pststmtUpdateMovie.executeUpdate();
+        pststmtUpdateMovie.close();
+        con.close();
+
+        return movie;
+
     }
 
 

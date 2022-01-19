@@ -38,5 +38,4 @@ public interface LogicInterface {
     public void removeMovieFromCategory(int movieId,int categoryId) throws SQLException;
 
 
-    void updateMovieRating(Movie rating) throws SQLException;
 }

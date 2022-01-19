@@ -31,4 +31,8 @@ public interface IDALManager {
     public void addMovieToCategory(Category category,Movie movie) throws SQLException;
 
     public void removeMovieFromCategory(Category category,Movie movie) throws SQLException;
+
+    public void saveRating(Movie movie) throws SQLException;
+
+
 }

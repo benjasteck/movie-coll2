@@ -12,13 +12,6 @@ import java.util.List;
 public class Manager implements LogicInterface {
 
 
-    /*
-        public Movie updateMovieRating(){}
-        public Movie updateMovieDate(){}
-        public void searchMovie (){}
-        public void updateMovieRating(){}
-        public void updateMovieDate(){}
-        */
     DALmanager daLmanager = new DALmanager();
     private Object Category;
 
@@ -81,11 +74,6 @@ public class Manager implements LogicInterface {
 
     public void removeMovieFromCategory(int movieId, int categoryId) throws SQLException {
         daLmanager.removeMovieFromCategory(new Category(categoryId, ""), new Movie("", 0, 0, null, "", movieId));
-    }
-
-    @Override
-    public void updateMovieRating(Movie rating) throws SQLException {
-
     }
 
     public void deleteCategory(Category selectedItem) throws SQLException {

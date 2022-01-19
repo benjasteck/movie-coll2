@@ -81,4 +81,9 @@ public class DALmanager implements IDALManager {
         movieDAO.deleteMovie(selectedItem);
     }
 
+    public void saveRating(Movie movie) throws SQLException {
+        movieDAO.saveRating(movie);
+
+    }
+
 }
