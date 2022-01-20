@@ -12,11 +12,11 @@ import java.util.List;
 
 public class DALmanager implements IDALManager {
     private static CategoryDAO categoryDAO;
-    private MovieDAO movieDAO;
-    private CatMovieDAO catMovieDAO;
+    private final MovieDAO movieDAO;
+    private final CatMovieDAO catMovieDAO;
 
     public DALmanager() throws IOException {
-        this.categoryDAO = new CategoryDAO();
+        categoryDAO = new CategoryDAO();
         this.movieDAO = new MovieDAO();
         this.catMovieDAO = new CatMovieDAO();
     }
@@ -29,7 +29,7 @@ public class DALmanager implements IDALManager {
 
     @Override
     public Movie createMovie(Movie movie) throws Exception {
-        return movieDAO.createMovie(movie);
+        return MovieDAO.createMovie(movie);
     }
 
     @Override
