@@ -17,7 +17,10 @@ import java.io.IOException;
 
 
 public class CategoryController {
-
+    private Controller parentController;
+    public void setParentController(Controller controller){
+        this.parentController=controller;
+    }
     @FXML
     private Button btnCancelEditingCategory;
     @FXML
@@ -53,5 +56,6 @@ public class CategoryController {
         Stage stage = (Stage) saveCategoryButton.getScene().getWindow();
         stage.close();
         categoryTable.refresh();
+        parentController.initialize();
     }
 }

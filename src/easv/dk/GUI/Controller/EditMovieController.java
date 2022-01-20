@@ -17,6 +17,10 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class EditMovieController {
+    private Controller parentController;
+    public void setParentController(Controller controller){
+        this.parentController=controller;
+    }
     public TextField txt_movieUrl;
     public Button btnChooseFile;
     @FXML
@@ -58,7 +62,7 @@ public class EditMovieController {
         manager.updateMovie(movieUpdated);
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
-
+        parentController.initialize();
     }
 
 

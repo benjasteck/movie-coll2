@@ -163,8 +163,10 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EDITmovieWindow.fxml"));
         Parent root = loader.load();
+
         EditMovieController control = loader.<EditMovieController>getController();
         control.setInfo(movieTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -197,7 +199,8 @@ public class Controller {
         column4.setCellValueFactory(new PropertyValueFactory<>("lastView"));
         TableColumn<Movie, String> column5 = new TableColumn<>("Category");
         column5.setCellValueFactory(new PropertyValueFactory<>("category"));
-        categoryTable.getColumns().clear();
+        movieTable.getColumns().clear();
+
         movieTable.getColumns().add(column1);
         movieTable.getColumns().add(column5);
         movieTable.getColumns().add(column2);
@@ -393,7 +396,10 @@ public class Controller {
     public void openNewCategoryWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/categoryWindow.fxml"));
+      
         Parent root = loader.load();
+        CategoryController categoryController=loader.getController();
+        categoryController.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
