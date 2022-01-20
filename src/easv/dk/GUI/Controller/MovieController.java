@@ -86,13 +86,13 @@ public void setParentController(Controller controller){
     }
      private void fillCategoryCombo() {
         try {
-            LogicInterface bll = new Manager();
+            LogicInterface bll = new Manager();  //interface that using Logic layer
             
             List<Category> allCategories = bll.getAllCategories();          //get all cateogries
             
 
-            comboBoxCategory.getItems().clear();
-            comboBoxCategory.getItems().addAll(allCategories);
+            comboBoxCategory.getItems().clear();        //clear combo box last items
+            comboBoxCategory.getItems().addAll(allCategories);      //add all database categories to combo box
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -127,14 +127,14 @@ public void setParentController(Controller controller){
         Date lastView = null;
         String movieUrl = txt_movieUrl.getText();
 
-        Movie movieCreated = new Movie(title, userRating, imdbRating, null, movieUrl, 0);
-        Movie savedMovie=MovieDAO.createMovie(movieCreated);
-        LogicInterface bll=new Manager();
-        bll.addMovieToCategory(((Category) comboBoxCategory.getSelectionModel().getSelectedItem()),savedMovie);
+        Movie movieCreated = new Movie(title, userRating, imdbRating, null, movieUrl, 0);  //create new movie object
+        Movie savedMovie=MovieDAO.createMovie(movieCreated);  ////save new movie to database in movie table
+        LogicInterface bll=new Manager();       //new login layer manager
+        bll.addMovieToCategory(((Category) comboBoxCategory.getSelectionModel().getSelectedItem()),savedMovie);//add movie to category and save it in catmovie table
 
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
-        this.controller.initialize();
+        this.controller.initialize();       //initialize movietable and category table and refresh them
     }
 
 }
