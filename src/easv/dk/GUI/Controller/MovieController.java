@@ -1,6 +1,9 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Category;
 import easv.dk.BE.Movie;
+import easv.dk.BLL.LogicInterface;
+import easv.dk.BLL.Manager;
 import easv.dk.DAL.MovieDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +22,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Window;
 
 import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 public class MovieController {
 private Controller controller;
@@ -76,9 +82,22 @@ public void setParentController(Controller controller){
 
         //adds different Categories to the comboBox that the user can choose from
 
-        comboBoxCategory.getItems().removeAll(comboBoxCategory.getItems());
-        comboBoxCategory.getItems().addAll("Action", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Thriller", "Western");
-        comboBoxCategory.getSelectionModel().select("Action");
+        fillCategoryCombo();
+    }
+     private void fillCategoryCombo() {
+        try {
+            LogicInterface bll = new Manager();
+            
+            List<Category> allCategories = bll.getAllCategories();          //get all cateogries
+            
+
+            comboBoxCategory.getItems().clear();
+            comboBoxCategory.getItems().addAll(allCategories);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void chooseFile(ActionEvent actionEvent) {
@@ -109,7 +128,10 @@ public void setParentController(Controller controller){
         String movieUrl = txt_movieUrl.getText();
 
         Movie movieCreated = new Movie(title, userRating, imdbRating, null, movieUrl, 0);
-        MovieDAO.createMovie(movieCreated);
+        Movie savedMovie=MovieDAO.createMovie(movieCreated);
+        LogicInterface bll=new Manager();
+        bll.addMovieToCategory(((Category) comboBoxCategory.getSelectionModel().getSelectedItem()),savedMovie);
+
         Stage stage = (Stage) btnSaveMovie.getScene().getWindow();
         stage.close();
         this.controller.initialize();

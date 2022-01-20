@@ -33,7 +33,7 @@ public interface LogicInterface {
 
     public void updateCategory(String name, int id) throws SQLException;
 
-    public void addMovieToCategory(Category movieId, Movie categoryId) throws SQLException;
+    public void addMovieToCategory(Category category, Movie movie) throws SQLException;
 
     public void removeMovieFromCategory(int movieId,int categoryId) throws SQLException;
 

@@ -60,7 +60,7 @@ public class CatMovieDAO {
 
 
     public CatMovie createCatMovie(CatMovie catMovie) throws SQLException {
-        CatMovie catMovie1 = null;
+        CatMovie catMovie1 = new CatMovie(catMovie.getCategoryID(),catMovie.getMovieID());
         Connection con = cm.getConnection();
         String query = "insert into catmovie (movie_id,category_id) values(?,?);";
         PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);  //to return generated catMovie_id in result
