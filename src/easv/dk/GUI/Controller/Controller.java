@@ -109,7 +109,7 @@ public class Controller {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/rateMovieWindow.fxml"));
         Parent root = loader.load();
-        RateMovieController contrl = loader.<RateMovieController>getController();
+        RateMovieController contrl = loader.getController();
         contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         contrl.setController(this);
         Stage stage = new Stage();
@@ -148,7 +148,7 @@ public class Controller {
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EDITmovieWindow.fxml"));
         Parent root = loader.load();
 
-        EditMovieController control = loader.<EditMovieController>getController();
+        EditMovieController control = loader.getController();
         control.setInfo(movieTable.getSelectionModel().getSelectedItem());
         control.setParentController(this);
         Stage stage = new Stage();
@@ -227,15 +227,11 @@ public class Controller {
                 // Compare title, category and rating of every song with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
+                //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue() > searchBar.textProperty()).collect(Collectors.toList());
                 if (movie.getTitle().toLowerCase().contains(lowerCaseFilter))
                     return true; // Filter title.
 
-                else if (String.valueOf(movie.getImdbRating()).contains(lowerCaseFilter)) {
-                    //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue() > searchBar.textProperty()).collect(Collectors.toList());
-
-                    return true;
-                } else
-                    return false;
+                else return String.valueOf(movie.getImdbRating()).contains(lowerCaseFilter);
 
             });
             SortedList<Movie> sortedData = new SortedList<>(filteredData);
@@ -263,12 +259,7 @@ public class Controller {
                 // Compare title, category and rating of every song with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (category.getName().toLowerCase().contains(lowerCaseFilter))
-                    return true; // Filter title.
-
-
-                else
-                    return false;
+                return category.getName().toLowerCase().contains(lowerCaseFilter); // Filter title.
 
             });
             SortedList<Category> sortedData = new SortedList<>(filteredData);
@@ -280,8 +271,8 @@ public class Controller {
 
     public void sort() {
         //constructors of the columns needed
-        TableColumn movCol1 = (TableColumn) movieTable.getColumns().get(1);
-        TableColumn movCol2 = (TableColumn) movieTable.getColumns().get(2);
+        TableColumn movCol1 = movieTable.getColumns().get(1);
+        TableColumn movCol2 = movieTable.getColumns().get(2);
         TableColumn catCol1 = (TableColumn) categoryTable.getColumns().get(0);
 
         //checks for selected colum
@@ -395,7 +386,7 @@ public class Controller {
         Movie selectedMovie;
         Category selectedCategory;
         if (mode == MovieSelected) {
-            selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();
+            selectedMovie = movieTable.getSelectionModel().getSelectedItem();
             selectedCategory = movieInCategory.getItems().size() > 0 ? (Category) movieInCategory.getItems().get(0) : null;
         } else {
             selectedMovie = movieInCategory.getItems().size() > 0 ? (Movie) movieInCategory.getItems().get(0) : null;
@@ -419,7 +410,7 @@ public class Controller {
     public void showMovieCategoriesInList() {
         clearListView();
         mode = MovieSelected;
-        Movie selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();  //get selected movie in movie table
+        Movie selectedMovie = movieTable.getSelectionModel().getSelectedItem();  //get selected movie in movie table
         try {
             LogicInterface bll = new Manager();  //get bll interface to use data from database
             List<Category> categories = bll.getCategoriesFromMovie(selectedMovie);      //load categories for selected movie
@@ -460,7 +451,7 @@ public class Controller {
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/mediaPlayer.fxml"));
         Parent root = loader.load();
 
-        MediaPlayerController contrl = loader.<MediaPlayerController>getController();
+        MediaPlayerController contrl = loader.getController();
         contrl.setInfo(movieTable.getSelectionModel().getSelectedItem());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

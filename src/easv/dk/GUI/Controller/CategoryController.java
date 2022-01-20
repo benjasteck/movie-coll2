@@ -28,7 +28,7 @@ public class CategoryController {
     @FXML
     private Button saveCategoryButton;
     @FXML
-    private TableView categoryTable = new TableView();
+    private final TableView categoryTable = new TableView();
 
     public CategoryController() throws IOException {
     }

@@ -105,7 +105,7 @@ public class Test {
 
         for (Movie myMovie : movieList) {
             System.out.println("movie name: " + myMovie.getTitle() + " Rating: " + myMovie.getImdbRating());
-            movieDAO.createMovie(myMovie);
+            MovieDAO.createMovie(myMovie);
         }
 
     }

@@ -51,14 +51,11 @@ public class Category {
         this.movieCount = movieCount;
     }
 
-    public void setMoviesInCategory(List<Movie> moviesInCategory) {
-        this.moviesInCategory = moviesInCategory;
-    }
-//override tostring method to show only name of category when casting category to string
     @Override
     public String toString() {
         return  name ;
     }
+
     public void setAllMoviesInCategory(List<Movie> allMoviesInCategory) {
         this.moviesInCategory = allMoviesInCategory;
     }
