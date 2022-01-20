@@ -33,8 +33,6 @@ public class CategoryController {
     public CategoryController() throws IOException {
     }
 
-
-
     public void cancelEditingCategory(ActionEvent actionEvent) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);

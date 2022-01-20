@@ -19,7 +19,7 @@ import java.util.Date;
 public class EditMovieController {
     private Controller parentController;
     public void setParentController(Controller controller){
-        this.parentController=controller;
+        this.parentController = controller;
     }
     public TextField txt_movieUrl;
     public Button btnChooseFile;
@@ -38,6 +38,7 @@ public class EditMovieController {
     private Movie passedMovie;
 
     Manager manager = new Manager();
+
 
 
     public EditMovieController() throws IOException {

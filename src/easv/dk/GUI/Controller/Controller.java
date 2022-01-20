@@ -67,29 +67,20 @@ public class Controller {
     @FXML
     private ComboBox sorterBox;
     public int pressed = 0;
-    //private IntegerProperty modProperty;
     private final static int MovieSelected = 0;   //constant
     private final static int CategorySelected = 1;        //constant
     private int mode = MovieSelected;
-    //private Animation mediaPlayer;
 
-    // MediaPlayer mediaPlayer;
-    //    int currentMovie = -1;
-
-
-    //  Alert alert = new Alert(Alert.AlertType.WARNING, "Remember to delete movies that have a personal rating under 6 and have not been opened in more than 2 years", ButtonType.OK);
-    //        alert.showAndWait();
+    MovieModel movieModel = new MovieModel();
+    CategoryModel categoryModel = new CategoryModel();
 
     public Controller() throws IOException {
-
     }
-
 
     @FXML
     public void initialize() throws SQLException, IOException {
         sorterBox.getItems().removeAll(sorterBox.getItems());
         sorterBox.getItems().addAll("Title", "IMBD Score", "Category");
-
 
         setUpMovieTable();
         setUpCategoryTable();
@@ -97,17 +88,14 @@ public class Controller {
         filterCat();
         movieTable.setOnMouseClicked(event -> showMovieCategoriesInList());  //show categories when movie table clicked
         categoryTable.setOnMouseClicked(event -> showCategoryMoviesInList()); //show movies when category table clicked
-//        modProperty=new  SimpleIntegerProperty();
     }
 
-    MovieModel movieModel = new MovieModel();
-    CategoryModel categoryModel = new CategoryModel();
 
     public void openNewMovieWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieWindow.fxml"));
         Parent root = loader.load();
-        MovieController movieController=loader.getController();
+        MovieController movieController = loader.getController();
         movieController.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -130,10 +118,6 @@ public class Controller {
         stage.setTitle("Rate Movie");
         stage.centerOnScreen();
         stage.show();
-
-
-
-
     }
 
 
@@ -224,9 +208,6 @@ public class Controller {
     }
 
     public void filter() throws SQLException, IOException {
-
-
-
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 dataList.addAll(movieModel.getAllMovies1()); //<-- depending on what name the method gets
@@ -246,20 +227,15 @@ public class Controller {
                 // Compare title, category and rating of every song with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (movie.getTitle().toLowerCase().contains(lowerCaseFilter) )
+                if (movie.getTitle().toLowerCase().contains(lowerCaseFilter))
                     return true; // Filter title.
 
                 else if (String.valueOf(movie.getImdbRating()).contains(lowerCaseFilter)) {
                     //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue() > searchBar.textProperty()).collect(Collectors.toList());
 
                     return true;
-                }
-                else
+                } else
                     return false;
-                /*if (movie.getCategory().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;}*/ // Filter category.
-
-                // if nothing found return false
 
             });
             SortedList<Movie> sortedData = new SortedList<>(filteredData);
@@ -267,18 +243,9 @@ public class Controller {
             //show the new list of filtered songs
             movieTable.setItems(sortedData);
         });
-
-
-
-        //there needs to be a reference in an initialize method for this to work
-
-
     }
 
     public void filterCat() throws SQLException, IOException {
-
-
-
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 dataList2.addAll(categoryModel.getAllCategories1()); //<-- depending on what name the method gets
@@ -296,7 +263,7 @@ public class Controller {
                 // Compare title, category and rating of every song with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (category.getName().toLowerCase().contains(lowerCaseFilter) )
+                if (category.getName().toLowerCase().contains(lowerCaseFilter))
                     return true; // Filter title.
 
 
@@ -309,12 +276,6 @@ public class Controller {
             //show the new list of filtered songs
             categoryTable.setItems(sortedData);
         });
-
-
-
-        //there needs to be a reference in an initialize method for this to work
-
-
     }
 
     public void sort() {
@@ -363,8 +324,6 @@ public class Controller {
                 categoryTable.sort();
             }
         }
-
-
     }
 
 
@@ -396,9 +355,9 @@ public class Controller {
     public void openNewCategoryWindow(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/categoryWindow.fxml"));
-      
+
         Parent root = loader.load();
-        CategoryController categoryController=loader.getController();
+        CategoryController categoryController = loader.getController();
         categoryController.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -437,9 +396,9 @@ public class Controller {
         Category selectedCategory;
         if (mode == MovieSelected) {
             selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();
-            selectedCategory =movieInCategory.getItems().size()>0? (Category) movieInCategory.getItems().get(0):null;
+            selectedCategory = movieInCategory.getItems().size() > 0 ? (Category) movieInCategory.getItems().get(0) : null;
         } else {
-            selectedMovie = movieInCategory.getItems().size()>0 ?(Movie) movieInCategory.getItems().get(0):null;
+            selectedMovie = movieInCategory.getItems().size() > 0 ? (Movie) movieInCategory.getItems().get(0) : null;
             selectedCategory = (Category) categoryTable.getSelectionModel().getSelectedItem();
         }
         removeMovieFromCategory(selectedMovie, selectedCategory);
@@ -457,14 +416,6 @@ public class Controller {
         }
     }
 
-    public void addMovies(ActionEvent actionEvent) {
-        System.out.println("test");
-    }
-
-    public void newMovie(ActionEvent actionEvent) {
-    }
-
-    //to show category in list for each movie
     public void showMovieCategoriesInList() {
         clearListView();
         mode = MovieSelected;
@@ -482,8 +433,6 @@ public class Controller {
 
     private void clearListView() {
         movieInCategory.getItems().clear();
-
-
     }
 
     public void showCategoryMoviesInList() {
@@ -501,7 +450,7 @@ public class Controller {
         }
     }
 
-    public String getSelectedItem(){
+    public String getSelectedItem() {
         Movie movie1 = movieTable.getSelectionModel().getSelectedItem();
         return movie1.getMovieUrl();
     }
@@ -521,144 +470,10 @@ public class Controller {
         stage.show();
 
     }
-/*
-
-        if (mediaPlayer != null && currentMovie == movieTable.getSelectionModel().getSelectedIndex()) {
-            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
-                mediaPlayer.pause();
-            else if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
-                mediaPlayer.play();
-            }
-        } else {
-            currentMovie = movieTable.getSelectionModel().getFocusedIndex();
-            play();
-    }
-        private void play() {
-
-            if (mediaPlayer != null) {
-                stopMediaPlayer();
-            }
-
-            File file = new File(movieTable.getItems().get(currentMovie).getSongFile());
-
-            Media media = new Media(file.toURI().toString());
-            mediaPlayer = new Animation(media) {
-
-            };
-            mediaPlayer.play();
-
-            mediaPlayer.setOnEndOfMedia(() -> { // On end of media checks if the next song is valid to be played.
-                if (movieTable.getSelectionModel().getSelectedIndex() != -1) {
-                    if (movieTable.getItems().size() == currentMovie + 1) {
-                        currentMovie = 0; // If the last element of the list is reached. Restarts the counter back to 0
-                    } else {
-                        currentMovie++;
-                    }
-                    play(); //Calls itself to continue playing
-                } else {
-                    stopMediaPlayer(); //If no song is selected. Then stop the playing music.
-                }
-            });
-        }
-*/
-
-
-
-/*
-    public void addCatMovies(ActionEvent actionEvent) {
-        final Movie selectedMovie = (Movie) movieTable.getSelectionModel().getSelectedItem();
-        final Category selectedCategory = (Category) categoryTable.getSelectionModel().getSelectedItem();
-        if (selectedMovie == null && selectedCategory == null) {
-            new Alert(Alert.AlertType.ERROR, "Please select a Movie").show();
-            return;
-        }
-        if (mode == MovieSelected)
-            showCategorySelectForMovie(selectedMovie);
-        else
-            showMovieSelectForCategory(selectedCategory);
-    */
-
-   /* private void showMovieSelectForCategory(Category selectedCategory) {
-        Parent root;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("easv/dk/GUI/View/movieSelectforCategory.fxml"));
-            root = loader.load();
-            MovieSelectForCategory controller = loader.getController();
-
-            Stage stage = new Stage();
-            stage.setTitle("Select Movie for this Category");
-            stage.setScene(new Scene(root, 450, 450));
-            stage.show();
-            controller.setCategory(selectedCategory);
-            controller.setParentController(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
-    }
-
-
-
-/*
-    private void showCategorySelectForMovie(Movie selectedItem) {
-        Parent root;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("easv/dk/GUI/View/categorySelectForMovie.fxml"));
-            root = loader.load();
-            CategorySelectForMovieController controller = loader.getController();
-
-            Stage stage = new Stage();
-            stage.setTitle("Select Category for this movie");
-            stage.setScene(new Scene(root, 450, 450));
-            stage.show();
-            controller.setMovie(selectedItem);
-            controller.setParentController(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
- */
-
-    //when button is clicked, the selected movie will be added to the current category
-    //System.out.println(movieTable.getSelectionModel().getSelectedItem());
-    // movieOnCategory.getItems().add(movieTable.getSelectionModel().getSelectedItem());
+}
 
 
 
 
-/*
-   public void sorter(){
-        TableView<Movie> table = new TableView<>();
-        TableColumn<Movie, String> column1 = new TableColumn<>("title");
-                column1.setCellValueFactory(cellData -> cellData.getValue().NameProperty());
-        TableColumn<Movie, String> column2 = new TableColumn<>("imbdRating");
-                column2.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        TableColumn<Movie, String> column3 = new TableColumn<>("userRating");
-                column3.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        TableColumn<Movie, String> column4 = new TableColumn<>("lastView");
-               column4.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
 
-
-
-        ObservableList<Movie> data = FXCollections.observableArrayList();
-        SortedList<Movie> sortedData = new SortedList<>(data);
-
-// this ensures the sortedData is sorted according to the sort columns in the table:
-        sortedData.comparatorProperty().bind(table.comparatorProperty());
-    }
-*/
-
-    /* @FXML
-    private void playStopMovie (ActionEvent actionEvent) {
-        if (mediaPlayer != null && currentMovie == movieTable.getSelectionModel().getSelectedIndex()) {
-            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
-                mediaPlayer.pause();
-            else if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED || mediaPlayer.getStatus() == MediaPlayer.Status.STOPPED) {
-                mediaPlayer.play();
-            }
-        } else {
-            currentMovie = movieTable.getSelectionModel().getFocusedIndex();
-            play();
-        }
-   */
 

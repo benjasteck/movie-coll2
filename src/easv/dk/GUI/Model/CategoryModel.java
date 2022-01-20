@@ -13,19 +13,15 @@ import java.util.List;
 public class CategoryModel {
 
     ObservableList<Category> getAllCategories;
+    Manager manager = new Manager();
 
     public CategoryModel() throws IOException {
         getAllCategories = FXCollections.observableArrayList();
         setListCategory();
     }
-    Manager manager = new Manager();
-
 
     private void setListCategory() {
-        //  getAllCategories.setAll(Manager.getAllCategories);
     }
-
-
 
     public void setGetAllCategories(ObservableList<Category> getAllCategories) {
         this.getAllCategories = getAllCategories;

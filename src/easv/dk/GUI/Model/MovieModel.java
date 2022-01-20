@@ -14,30 +14,23 @@ import java.util.List;
 public class MovieModel {
 
     ObservableList<Movie> getAllMovies;
-
+    Manager manager = new Manager();
 
     public MovieModel() throws IOException {
-
         getAllMovies = FXCollections.observableArrayList();
     }
-    Manager manager = new Manager();
 
     public void deleteMovie(Movie selectedItem) throws SQLException {
         manager.deleteMovie(selectedItem);
     }
 
-
-
     public void setGetAllMovies(ObservableList<Movie> getAllMovies) {
         this.getAllMovies = getAllMovies;
     }
-    public List<Movie> getAllMovies1() throws SQLException, IOException {
 
+    public List<Movie> getAllMovies1() throws SQLException, IOException {
         this.getAllMovies = FXCollections.observableArrayList();
         this.getAllMovies.addAll(this.manager.getAllMovies());
         return this.getAllMovies;
     }
-
-
-
 }

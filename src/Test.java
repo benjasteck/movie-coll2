@@ -14,18 +14,6 @@ public class Test {
     private static String userRating;
 
     public static void main(String[] args) throws Exception {
-        // createMovie();
-        //getAllMovie();
-        // updateMovie();
-        //deleteMovie();
-        //System.out.println("?"+!connection.isClose());
-
-        //createCategory();
-        // getAllCategories();
-        // getCategoryById();
-        //updateCategory();
-        //deleteCategory();
-
     }
 
     private static void deleteCategory() {
